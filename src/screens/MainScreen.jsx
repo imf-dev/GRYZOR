@@ -84,14 +84,14 @@ const games = [
 ];
 
 const MainScreen = () => {
-  const [visibleCount, setVisibleCount] = useState(6); // initially show 6
+  const [visibleCount, setVisibleCount] = useState(6); // 6 muna
 
   const handleShowMore = () => {
     setVisibleCount((prev) => Math.min(prev + 6, games.length));
   };
 
   const handleShowLess = () => {
-    setVisibleCount(6); // reset to initial 6
+    setVisibleCount(6); //6 cards
   };
 
   return (
@@ -100,17 +100,14 @@ const MainScreen = () => {
       <section id="about" className="hero-section">
         <section className="hero-section">
           <div className="hero-content">
-            {/* Center Logo */}
             <div className="hero-logo">
               <img src={logo} alt="GRYZOR" className="logo-image" />
             </div>
 
-            {/* Main Title */}
             <h1 className="hero-title">
               <span className="title-platform">Forged for Legends</span>
             </h1>
 
-            {/* Description */}
             <p className="hero-description">
               GRYZOR is built by gamers, for gamers. We live for the grind, the
               wins, and the worlds we play in. From our profiles to the games we
@@ -118,7 +115,6 @@ const MainScreen = () => {
             </p>
           </div>
 
-          {/* Hero Characters */}
           <div className="hero-characters">
             <div className="characters-fade">
               <img
@@ -162,7 +158,7 @@ const MainScreen = () => {
             </div>
           </div>
 
-          {/* Show More / Show Less Buttons */}
+          {/* Show More/Show Less Buttons */}
           <div className="show-more-container">
             {visibleCount < games.length && (
               <div className="separator-btn" onClick={handleShowMore}>

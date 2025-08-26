@@ -9,6 +9,7 @@ const ProfileCards = ({
   isRight,
   onClick,
   isHighlighted,
+  hasProfilePage,
 }) => {
   const getCardClass = () => {
     let baseClass = "profile-card";
@@ -16,6 +17,7 @@ const ProfileCards = ({
     if (isLeft) baseClass += " left";
     if (isRight) baseClass += " right";
     if (isHighlighted) baseClass += " highlighted";
+    if (hasProfilePage) baseClass += " has-profile";
     return baseClass;
   };
 
@@ -62,6 +64,7 @@ ProfileCards.propTypes = {
   isRight: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   isHighlighted: PropTypes.bool,
+  hasProfilePage: PropTypes.bool,
 };
 
 ProfileCards.defaultProps = {
@@ -69,6 +72,7 @@ ProfileCards.defaultProps = {
   isLeft: false,
   isRight: false,
   isHighlighted: false,
+  hasProfilePage: false,
 };
 
 export default ProfileCards;

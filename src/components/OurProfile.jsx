@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { SiRepublicofgamers } from "react-icons/si";
+import { useNavigate } from "react-router-dom";
 import ProfileCards from "./ProfileCards";
 import "../styles/OurProfile.css";
 
 import jen from "../assets/player_pics/jennifer.jpg";
 import irah from "../assets/player_pics/irah.jpg";
 import isa from "../assets/player_pics/isabel.jpeg";
+import ced from "../assets/player_pics/cedrick.jpg";
 
 const profilesData = [
   {
@@ -31,10 +33,9 @@ const profilesData = [
   },
   {
     id: 4,
-    profilePicture:
-      "https://upload.wikimedia.org/wikipedia/commons/b/b9/Hon._Virgilio_V._Hilario%2C_Jr.png",
+    profilePicture: ced,
     realName: "Aveja Cedrick Ipong",
-    ign: "ThunderBolt",
+    ign: "bas_dash",
     favoriteGame: "Honor of Kings",
   },
   {
@@ -48,13 +49,18 @@ const profilesData = [
 ];
 
 const OurProfile = () => {
-  const [currentIndex, setCurrentIndex] = useState(2); // Start with middle card active
+  const [currentIndex, setCurrentIndex] = useState(2); //middle card ang default
   const [searchTerm, setSearchTerm] = useState("");
   const [highlightedCard, setHighlightedCard] = useState(null);
   const [profiles, setProfiles] = useState(profilesData);
 
+  const navigate = useNavigate();
   const handleCardClick = (index) => {
     setCurrentIndex(index);
+
+    if (profiles[index].id === 2) {
+      navigate("/GRYZOR/profile/faner");
+    }
   };
 
   const handlePrevious = () => {
@@ -74,7 +80,7 @@ const OurProfile = () => {
       return;
     }
 
-    // Find matching profile
+    //Find matching profile
     const matchingIndex = profiles.findIndex(
       (profile) =>
         profile.realName.toLowerCase().includes(term) ||
@@ -85,7 +91,6 @@ const OurProfile = () => {
       setCurrentIndex(matchingIndex);
       setHighlightedCard(matchingIndex);
 
-      // Clear highlight after 2 seconds
       setTimeout(() => {
         setHighlightedCard(null);
       }, 2000);
@@ -122,7 +127,7 @@ const OurProfile = () => {
           Get to know the gamers behind GRYZOR - where passion meets skill
         </p>
 
-        {/* Search Bar */}
+        {/* Search */}
         <div className="search-container">
           <div className="search-wrapper">
             <input
@@ -153,7 +158,7 @@ const OurProfile = () => {
         </div>
       </div>
 
-      {/* Carousel */}
+      {/* Carousel Cardsa*/}
       <div className="carousel-container">
         <button
           className="carousel-arrow left-arrow"
@@ -214,7 +219,7 @@ const OurProfile = () => {
         </button>
       </div>
 
-      {/* Navigation Dots */}
+      {/* Navigation Tuldoks */}
       <div className="navigation-dots">
         {profiles.map((_, index) => (
           <button
