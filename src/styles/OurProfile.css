@@ -1,122 +1,239 @@
-.our-profile-container {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%);
-  padding: 60px 40px;
-  margin: 40px 0;
+.our-profile-section {
+  padding: 80px 20px 120px;
+  background: rgba(20, 20, 40, 0.45);
+  width: 100%;
   position: relative;
+  overflow: hidden;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 80px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white;
+  animation: fadeInUp 1s ease-out;
+}
+
+.title-highlight {
+  background: linear-gradient(135deg, #7209b7, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.profile-description {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+/* Search Bar Styles */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 15px 20px 15px 50px;
+  background: rgba(26, 26, 46, 0.8);
+  border: 2px solid rgba(114, 9, 183, 0.3);
+  border-radius: 25px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-input:focus {
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 0 20px rgba(114, 9, 183, 0.3);
+  background: rgba(26, 26, 46, 0.9);
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.search-input:focus + .search-icon {
+  color: rgba(168, 85, 247, 0.8);
+}
+
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 450px;
+  margin-bottom: 60px;
+  perspective: 1200px;
+}
+
+.cards-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.profile-header {
-  text-align: left;
-  margin-bottom: 40px;
-}
-
-.profile-title {
-  color: #ffffff;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.profile-image-container {
-  flex-grow: 1;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.profile-card {
-  width: 150px;
-  height: 300px;
-  justify-content: space-between;
-  position: relative;
+/* Carousel Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(26, 26, 46, 0.8);
+  border: 2px solid rgba(114, 9, 183, 0.3);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   transition: all 0.3s ease;
-  border-radius: 15px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  z-index: 100;
 }
 
-.profile-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  border-color: rgba(114, 9, 183, 0.5);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+.carousel-arrow:hover {
+  background: rgba(114, 9, 183, 0.3);
+  border-color: rgba(168, 85, 247, 0.6);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 25px rgba(114, 9, 183, 0.3);
 }
 
-.profile-card.selected {
-  border-color: #7209b7;
-  background: rgba(114, 9, 183, 0.2);
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(114, 9, 183, 0.4);
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.95);
 }
 
-.profile-image-container {
-  position: relative;
-  width: 100%;
-  height: 130px;
-  overflow: hidden;
+.left-arrow {
+  left: 10%;
+  animation: slideInLeft 1s ease-out 0.6s both;
 }
 
-.profile-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+.right-arrow {
+  right: 10%;
+  animation: slideInRight 1s ease-out 0.6s both;
 }
 
-.profile-card:hover .profile-image {
-  transform: scale(1.1);
-}
-
-.profile-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.7)
-  );
+/* Navigation Dots */
+.navigation-dots {
   display: flex;
-  align-items: flex-end;
-  padding: 10px;
-}
-
-.profile-role {
-  background: rgba(114, 9, 183, 0.8);
-  color: #ffffff;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.profile-name {
-  text-align: center;
-  color: #ffffff;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 8px;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(5px);
-}
-
-.slider-wrapper {
   justify-content: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 12px;
+  margin-top: 40px;
+  animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
   position: relative;
 }
 
-.slick-slide {
-  padding: 20px 15px;
+.dot:hover {
+  background: rgba(168, 85, 247, 0.6);
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background: rgba(168, 85, 247, 0.8);
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+.dot.active::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid rgba(168, 85, 247, 0.3);
+  border-radius: 50%;
+  animation: pulseRing 2s infinite;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }

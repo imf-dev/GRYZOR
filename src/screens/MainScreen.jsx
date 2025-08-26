@@ -4,6 +4,7 @@ import logo from "../assets/GRYZOR_logoonly.svg";
 import characters from "../assets/charac-cropped.svg";
 import GameCard from "../components/GameCards";
 import OurProfile from "../components/OurProfile";
+
 const games = [
   {
     title: "Valorant",

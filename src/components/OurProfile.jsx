@@ -1,125 +1,229 @@
-import React, { useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useState, useEffect } from "react";
+import { SiRepublicofgamers } from "react-icons/si";
+import ProfileCards from "./ProfileCards";
 import "../styles/OurProfile.css";
 
+import jen from "../assets/player_pics/jennifer.jpg";
+import irah from "../assets/player_pics/irah.jpg";
+import isa from "../assets/player_pics/isabel.jpeg";
+
+const profilesData = [
+  {
+    id: 1,
+    profilePicture: jen,
+    realName: "Jennifer Leigh Chio",
+    ign: "swzvzn",
+    favoriteGame: "Valorant",
+  },
+  {
+    id: 2,
+    profilePicture: irah,
+    realName: "Irah Mae Faner",
+    ign: "yorchigt",
+    favoriteGame: "Growtopia",
+  },
+  {
+    id: 3,
+    profilePicture: isa,
+    realName: "Cyrene Isabelle Wenceslao",
+    ign: "Izabel",
+    favoriteGame: "Elden Ring",
+  },
+  {
+    id: 4,
+    profilePicture:
+      "https://upload.wikimedia.org/wikipedia/commons/b/b9/Hon._Virgilio_V._Hilario%2C_Jr.png",
+    realName: "Aveja Cedrick Ipong",
+    ign: "ThunderBolt",
+    favoriteGame: "Honor of Kings",
+  },
+  {
+    id: 5,
+    profilePicture:
+      "https://images.gmanews.tv/webpics/2021/10/kuyakim_2021_10_05_11_53_19.jpg",
+    realName: "Nicolo Ariola",
+    ign: "Xylo",
+    favoriteGame: "Genshin Impact",
+  },
+];
+
 const OurProfile = () => {
-  const [selectedProfile, setSelectedProfile] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(2); // Start with middle card active
+  const [searchTerm, setSearchTerm] = useState("");
+  const [highlightedCard, setHighlightedCard] = useState(null);
+  const [profiles, setProfiles] = useState(profilesData);
 
-  const profiles = [
-    {
-      id: 1,
-      name: "Phoenix",
-      role: "Duelist",
-      country: "UK",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
-      abilities: [
-        { name: "Blaze", icon: "🔥" },
-        { name: "Curveball", icon: "⚡" },
-        { name: "Hot Hands", icon: "🌟" },
-        { name: "Run it Back", icon: "🔄" },
-      ],
-    },
-    {
-      id: 2,
-      name: "Jett",
-      role: "Duelist",
-      country: "South Korea",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616c95a12ab?w=400&h=500&fit=crop&crop=face",
-      abilities: [
-        { name: "Cloudburst", icon: "☁️" },
-        { name: "Updraft", icon: "⬆️" },
-        { name: "Tailwind", icon: "💨" },
-        { name: "Blade Storm", icon: "⚔️" },
-      ],
-    },
-    {
-      id: 3,
-      name: "Sage",
-      role: "Sentinel",
-      country: "China",
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face",
-      abilities: [
-        { name: "Barrier Orb", icon: "🛡️" },
-        { name: "Slow Orb", icon: "🌀" },
-        { name: "Healing Orb", icon: "💚" },
-        { name: "Resurrection", icon: "✨" },
-      ],
-    },
-    {
-      id: 4,
-      name: "Sova",
-      role: "Initiator",
-      country: "Russia",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
-      abilities: [
-        { name: "Owl Drone", icon: "🦅" },
-        { name: "Shock Bolt", icon: "⚡" },
-        { name: "Recon Bolt", icon: "🎯" },
-        { name: "Hunter's Fury", icon: "🏹" },
-      ],
-    },
-    {
-      id: 5,
-      name: "Viper",
-      role: "Controller",
-      country: "USA",
-      image:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face",
-      abilities: [
-        { name: "Snake Bite", icon: "🐍" },
-        { name: "Poison Cloud", icon: "☠️" },
-        { name: "Toxic Screen", icon: "💚" },
-        { name: "Viper's Pit", icon: "🌫️" },
-      ],
-    },
-  ];
+  const handleCardClick = (index) => {
+    setCurrentIndex(index);
+  };
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4, //number of slides to show
-    slidesToScroll: 1,
-    arrows: true,
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1 } },
-      { breakpoint: 480, settings: { slidesToShow: 1 } },
-    ],
+  const handlePrevious = () => {
+    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : profiles.length - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev < profiles.length - 1 ? prev + 1 : 0));
+  };
+
+  const handleSearch = (e) => {
+    const term = e.target.value.toLowerCase();
+    setSearchTerm(term);
+
+    if (term.trim() === "") {
+      setHighlightedCard(null);
+      return;
+    }
+
+    // Find matching profile
+    const matchingIndex = profiles.findIndex(
+      (profile) =>
+        profile.realName.toLowerCase().includes(term) ||
+        profile.ign.toLowerCase().includes(term)
+    );
+
+    if (matchingIndex !== -1) {
+      setCurrentIndex(matchingIndex);
+      setHighlightedCard(matchingIndex);
+
+      // Clear highlight after 2 seconds
+      setTimeout(() => {
+        setHighlightedCard(null);
+      }, 2000);
+    } else {
+      setHighlightedCard(null);
+    }
+  };
+
+  const getCardPosition = (index) => {
+    if (index === currentIndex) return "active";
+    if (
+      index === currentIndex - 1 ||
+      (currentIndex === 0 && index === profiles.length - 1)
+    ) {
+      return "left";
+    }
+    if (
+      index === currentIndex + 1 ||
+      (currentIndex === profiles.length - 1 && index === 0)
+    ) {
+      return "right";
+    }
+    return "hidden";
   };
 
   return (
-    <div className="our-profile-container">
-      <div className="slider-wrapper">
-        <Slider {...settings}>
-          {profiles.map((profile, index) => (
-            <div
-              key={profile.id}
-              className={`profile-card ${
-                selectedProfile === index ? "selected" : ""
-              }`}
-              onClick={() => setSelectedProfile(index)}
-            >
-              <div className="profile-image-container">
-                <img
-                  src={profile.image}
-                  alt={profile.name}
-                  className="profile-image"
+    <div className="our-profile-section">
+      <div className="profile-header">
+        <h2 className="profile-title">
+          Meet the <span className="title-highlight">Legends</span>{" "}
+          <SiRepublicofgamers size={50} style={{ verticalAlign: "middle" }} />
+        </h2>
+        <p className="profile-description">
+          Get to know the gamers behind GRYZOR - where passion meets skill
+        </p>
+
+        {/* Search Bar */}
+        <div className="search-container">
+          <div className="search-wrapper">
+            <input
+              type="text"
+              placeholder="Search by name or IGN..."
+              value={searchTerm}
+              onChange={handleSearch}
+              className="search-input"
+            />
+            <div className="search-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 21L16.514 16.506M19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
-                <div className="profile-overlay">
-                  <div className="profile-role">{profile.role}</div>
-                </div>
-              </div>
-              <div className="profile-name">{profile.name}</div>
+              </svg>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Carousel */}
+      <div className="carousel-container">
+        <button
+          className="carousel-arrow left-arrow"
+          onClick={handlePrevious}
+          aria-label="Previous profile"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15 18L9 12L15 6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+
+        <div className="cards-container">
+          {profiles.map((profile, index) => (
+            <ProfileCards
+              key={profile.id}
+              profile={profile}
+              isActive={getCardPosition(index) === "active"}
+              isLeft={getCardPosition(index) === "left"}
+              isRight={getCardPosition(index) === "right"}
+              isHighlighted={highlightedCard === index}
+              onClick={() => handleCardClick(index)}
+            />
           ))}
-        </Slider>
+        </div>
+
+        <button
+          className="carousel-arrow right-arrow"
+          onClick={handleNext}
+          aria-label="Next profile"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 18L15 12L9 6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Navigation Dots */}
+      <div className="navigation-dots">
+        {profiles.map((_, index) => (
+          <button
+            key={index}
+            className={`dot ${index === currentIndex ? "active" : ""}`}
+            onClick={() => handleCardClick(index)}
+            aria-label={`Go to profile ${index + 1}`}
+          />
+        ))}
       </div>
     </div>
   );
