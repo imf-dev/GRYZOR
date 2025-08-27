@@ -8,6 +8,7 @@ import jen from "../assets/player_pics/jennifer.jpg";
 import irah from "../assets/player_pics/irah.jpg";
 import isa from "../assets/player_pics/isabel.jpeg";
 import ced from "../assets/player_pics/cedrick.jpg";
+import nic from "../assets/player_pics/nicolo.jpg";
 
 const profilesData = [
   {
@@ -27,7 +28,7 @@ const profilesData = [
   {
     id: 3,
     profilePicture: isa,
-    realName: "Cyrene Isabelle Wenceslao",
+    realName: "Isabelle Wenceslao",
     ign: "Izabel",
     favoriteGame: "Elden Ring",
   },
@@ -40,8 +41,7 @@ const profilesData = [
   },
   {
     id: 5,
-    profilePicture:
-      "https://images.gmanews.tv/webpics/2021/10/kuyakim_2021_10_05_11_53_19.jpg",
+    profilePicture: nic,
     realName: "Nicolo Ariola",
     ign: "Xylo",
     favoriteGame: "Genshin Impact",

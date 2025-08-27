@@ -81,6 +81,20 @@ const games = [
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzi7nqf8yycX8Ds1yYqLSox53U07k3099kgw&s",
   },
+  {
+    title: "Left 4 Dead 2",
+    description:
+      "Fast-paced cooperative zombie survival shooter where four survivors must fight through hordes of the infected using teamwork, guns, and melee weapons.",
+    imageUrl:
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/capsule_616x353.jpg?t=1745368562",
+  },
+  {
+    title: "Metal Fight Beyblade",
+    description:
+      "A fast-paced battling game where players launch customizable spinning tops into arenas and fight to outlast opponents with power, speed, and strategy.",
+    imageUrl:
+      "https://www.video-games-museum.com/en/screenshots/PSP/1/43942-title-Metal-Fight-Beyblade-Portable-Chouzetsu-Tensei-Vulcan-Horses.jpg",
+  },
 ];
 
 const MainScreen = () => {
