@@ -21,6 +21,7 @@
 
 .back-button {
   display: flex;
+  margin-top: 50px;
   align-items: center;
   gap: 8px;
   background: rgba(255, 255, 255, 0.1);

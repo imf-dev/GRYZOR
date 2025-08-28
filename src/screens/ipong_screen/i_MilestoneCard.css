@@ -1,0 +1,64 @@
+.ipong_milestone-card {
+  margin-top: 60px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.ipong_milestone-title {
+  color: #ffd700;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.ipong_milestone-grid {
+  display: grid;
+  gap: 15px;
+}
+
+.ipong_milestone-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.ipong_milestone-icon {
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.ipong_milestone-info h4 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.ipong_milestone-info p {
+  color: #b8c6db;
+  font-size: 14px;
+  margin: 0 0 5px 0;
+  line-height: 1.3;
+}
+
+.ipong_milestone-date {
+  color: #ffd700;
+  font-size: 12px;
+  font-weight: 600;
+}
