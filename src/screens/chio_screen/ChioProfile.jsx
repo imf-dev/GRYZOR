@@ -335,7 +335,7 @@ function ChioProfile() {
       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
       transition: 'transform 0.3s ease, box-shadow 0.3s ease',
       width: '100%',
-      height: '280px',
+      height: '320px',
       backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(26, 29, 41, 0.95)), url(${ae})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -384,9 +384,10 @@ function ChioProfile() {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      gap: '16px',
+      gap: '20px',
       flex: 1,
-      justifyContent: 'center'
+      justifyContent: 'center',
+      padding: '20px 0'
     },
     avatarWrapper: {
       position: 'relative',
@@ -419,7 +420,11 @@ function ChioProfile() {
       background: '#14e125d2'
     },
     centerInfo: {
-      textAlign: 'center'
+      textAlign: 'center',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: '8px'
     },
     gamerTag: {
       fontSize: '28px',
@@ -440,7 +445,8 @@ function ChioProfile() {
     discord: {
       color: '#838aa7',
       fontSize: '16px',
-      margin: '6px 0 0 0'
+      margin: '8px 0 0 0',
+      textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)'
     },
     rightSection: {
       display: 'flex',
