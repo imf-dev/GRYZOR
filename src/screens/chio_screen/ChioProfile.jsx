@@ -12,9 +12,174 @@ import l4d2Img from "../../assets/l4d2.jpg";
 import ae from "../../assets/bg.jpg";
 import flag from "../../assets/ph.png";
 
+// Global Stats Card Component
+function GlobalStatsCard({ gamesTracked, totalAchievements, avgLevel, weeklyHours }) {
+  return (
+    <div style={{
+      gridColumn: '1 / span 1',
+      background: '#1c1f2b',
+      padding: '16px',
+      borderRadius: '12px',
+      boxShadow: '0 6px 18px rgba(35, 65, 153, 0.443)'
+    }}>
+      <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '12px', color: '#fff' }}>Global Stats</h3>
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+        <li style={{ margin: '8px 0', color: '#fff' }}>Games Tracked: {gamesTracked}</li>
+        <li style={{ margin: '8px 0', color: '#fff' }}>Total Achievements: {totalAchievements}</li>
+        <li style={{ margin: '8px 0', color: '#fff' }}>Average Level: {avgLevel}</li>
+        <li style={{ margin: '8px 0', color: '#fff' }}>Weekly Hours: {weeklyHours}</li>
+      </ul>
+    </div>
+  );
+}
+
+// Milestone Card Component
+function MilestoneCard({ label, description, progress }) {
+  return (
+    <div style={{
+      gridColumn: '2 / span 1',
+      background: '#1c1f2b',
+      padding: '16px',
+      borderRadius: '12px',
+      boxShadow: '0 6px 18px rgba(45, 18, 197, 0.443)'
+    }}>
+      <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '12px', color: '#fff' }}>{label}</h3>
+      <p style={{ color: '#fff', marginBottom: '12px' }}>{description}</p>
+      <div style={{
+        width: '100%',
+        height: '8px',
+        background: 'rgba(255,255,255,0.2)',
+        borderRadius: '4px',
+        marginBottom: '8px'
+      }}>
+        <div style={{
+          width: `${progress}%`,
+          height: '100%',
+          background: '#7ddd7a',
+          borderRadius: '4px'
+        }}></div>
+      </div>
+      <span style={{ color: '#fff', fontSize: '14px' }}>{progress}% Complete</span>
+    </div>
+  );
+}
+
+// Game Card Component (matching Chio's original design)
+function GameCard({ name, ign, hours, rank, stats, image, achievements }) {
+  return (
+    <div style={{
+      width: '340px',
+      minHeight: '520px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      background: 'linear-gradient(180deg, #1233ebb8, #8c0ba99f)',
+      borderRadius: '16px',
+      padding: '16px',
+      boxShadow: '0 6px 18px rgba(5, 197, 231, 0.365)',
+      color: '#ffffff',
+      transition: 'transform 0.25s ease, box-shadow 0.25s ease, background 0.4s ease'
+    }}>
+      <img 
+        src={image} 
+        alt={name} 
+        style={{
+          width: '100%',
+          height: '200px',
+          objectFit: 'cover',
+          borderRadius: '50px',
+          marginBottom: '12px'
+        }} 
+      />
+      
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+        <h3 style={{ fontSize: 'clamp(1rem, 1.2vw, 1.3rem)', fontWeight: 600, margin: 0 }}>{name}</h3>
+      </div>
+      
+      <p style={{ fontSize: 'clamp(0.8rem, 1vw, 1rem)', opacity: 0.85, margin: '4px 0' }}>{ign}</p>
+      <p style={{ fontSize: 'clamp(0.8rem, 1vw, 1rem)', opacity: 0.85, margin: '4px 0' }}>{rank}</p>
+      
+      <ul style={{ listStyle: 'none', padding: 0, margin: '12px 0' }}>
+        {stats && Object.entries(stats).map(([key, value]) => (
+          <li key={key} style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            fontSize: 'clamp(0.75rem, 0.9vw, 0.9rem)',
+            margin: '4px 0'
+          }}>
+            <span style={{ opacity: 0.85 }}>{key}</span>
+            <span style={{ fontWeight: 600 }}>{value}</span>
+          </li>
+        ))}
+      </ul>
+      
+      <div style={{
+        background: 'rgba(255, 255, 255, 0.08)',
+        padding: '10px',
+        borderRadius: '12px',
+        marginTop: 'auto'
+      }}>
+        <h5 style={{ margin: '0 0 8px', fontSize: 'clamp(0.9rem, 1vw, 1rem)', fontWeight: 600 }}>Achievements</h5>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+          {achievements && achievements.map((a, i) => (
+            <div key={i} style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              background: 'rgba(255, 255, 255, 0.1)',
+              padding: '6px 8px',
+              borderRadius: '8px',
+              fontSize: 'clamp(0.75rem, 0.9vw, 0.9rem)',
+              wordBreak: 'break-word'
+            }}>
+              <span style={{ flexShrink: 0 }}>{a.icon}</span>
+              <span>{a.title}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Container Card Component
+function ContainerCard({ title, items, className }) {
+  return (
+    <div style={{
+      flex: 1,
+      minWidth: '250px',
+      background: '#12151a',
+      padding: '16px',
+      borderRadius: '12px',
+      boxShadow: '0 6px 18px rgba(2, 230, 131, 0.443)'
+    }}>
+      <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '12px', color: '#fff' }}>{title}</h3>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        {items.length === 0 ? (
+          <p style={{ color: '#fff' }}>No data yet.</p>
+        ) : (
+          items.map((item, i) => (
+            <div key={i} style={{
+              background: '#1c1f2b',
+              padding: '12px',
+              borderRadius: '8px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '4px',
+              color: '#fff'
+            }}>
+              <span style={{ fontSize: '20px' }}>{item.icon}</span>
+              <h4 style={{ margin: '4px 0', fontSize: '16px' }}>{item.title}</h4>
+              <p style={{ margin: 0, fontSize: '14px', opacity: 0.8 }}>{item.detail}</p>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
+}
+
 function ChioProfile() {
-  const [selectedGame, setSelectedGame] = useState(null);
-  
   const profile = {
     gamerTag: "swzvzn",
     discord: "swzvzn",
@@ -265,7 +430,7 @@ function ChioProfile() {
       padding: '4px 8px',
       borderRadius: '12px',
       fontSize: '12px',
-      fontWeight: 600',
+      fontWeight: 600,
       textTransform: 'uppercase'
     },
     discord: {
@@ -311,72 +476,12 @@ function ChioProfile() {
       transition: 'all 0.3s ease',
       color: '#fff'
     },
-    globalStats: {
-      gridColumn: '1 / span 1',
-      background: '#1c1f2b',
-      padding: '16px',
-      borderRadius: '12px',
-      boxShadow: '0 6px 18px rgba(35, 65, 153, 0.443)'
-    },
-    milestoneCard: {
-      gridColumn: '2 / span 1',
-      background: '#1c1f2b',
-      padding: '16px',
-      borderRadius: '12px',
-      boxShadow: '0 6px 18px rgba(45, 18, 197, 0.443)'
-    },
     gameCardContainer: {
       gridColumn: '1 / span 2',
       display: 'grid',
       gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '16px'
-    },
-    gameCard: {
-      background: '#12151a',
-      padding: '16px',
-      borderRadius: '12px',
-      boxShadow: '0 6px 18px rgba(48, 15, 167, 0.443)',
-      transition: 'transform 0.3s ease'
-    },
-    gameCardImage: {
-      width: '100%',
-      height: '120px',
-      objectFit: 'cover',
-      borderRadius: '8px',
-      marginBottom: '12px'
-    },
-    gameCardTitle: {
-      fontSize: '18px',
-      fontWeight: 600,
-      color: '#fff',
-      marginBottom: '4px'
-    },
-    gameCardSubtitle: {
-      fontSize: '14px',
-      color: '#838aa7',
-      marginBottom: '8px'
-    },
-    gameCardStats: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '4px',
-      marginBottom: '12px'
-    },
-    gameCardStat: {
-      fontSize: '12px',
-      color: '#ccc'
-    },
-    gameCardAchievements: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      gap: '4px'
-    },
-    achievementTag: {
-      background: 'rgba(125, 221, 122, 0.2)',
-      color: '#7ddd7a',
-      padding: '2px 6px',
-      borderRadius: '4px',
-      fontSize: '10px'
+      gap: '16px',
+      justifyContent: 'center'
     },
     sideContainer: {
       gridColumn: '1 / span 2',
@@ -384,43 +489,12 @@ function ChioProfile() {
       gap: '20px',
       flexWrap: 'wrap'
     },
-    achievementsCard: {
-      flex: 1,
-      minWidth: '250px',
-      background: '#12151a',
-      padding: '16px',
-      borderRadius: '12px',
-      boxShadow: '0 6px 18px rgba(2, 230, 131, 0.443)'
-    },
     chartCard: {
       gridColumn: '1 / span 2',
       background: '#12151a',
       padding: '16px',
       borderRadius: '12px',
       boxShadow: '0 6px 18px rgba(2, 230, 131, 0.443)'
-    },
-    innerCard: {
-      background: '#1c1f2b',
-      padding: '12px',
-      borderRadius: '8px',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '4px',
-      color: '#fff',
-      marginBottom: '10px'
-    },
-    progressBar: {
-      width: '100%',
-      height: '8px',
-      background: 'rgba(255,255,255,0.2)',
-      borderRadius: '4px',
-      marginTop: '10px'
-    },
-    progressFill: {
-      width: '80%',
-      height: '100%',
-      background: '#7ddd7a',
-      borderRadius: '4px'
     }
   };
 
@@ -520,75 +594,33 @@ function ChioProfile() {
           </div>
         </div>
         
-        <div style={styles.globalStats}>
-          <h3>Global Stats</h3>
-          <ul>
-            <li>Games Tracked: {globalStats.gamesTracked}</li>
-            <li>Total Achievements: {globalStats.totalAchievements}</li>
-            <li>Average Level: {globalStats.avgLevel}</li>
-            <li>Weekly Hours: {globalStats.weeklyHours}</li>
-          </ul>
-        </div>
-        
-        <div style={styles.milestoneCard}>
-          <h3>{milestone.label}</h3>
-          <p>{milestone.description}</p>
-          <div style={styles.progressBar}>
-            <div style={{...styles.progressFill, width: `${milestone.progress}%`}}></div>
-          </div>
-          <span>{milestone.progress}% Complete</span>
-        </div>
-        
+        <GlobalStatsCard {...globalStats} />
+        <MilestoneCard {...milestone} />
+
+        {/* Game Cards Grid */}
         <div style={styles.gameCardContainer} className="chio-game-card-container">
-          {games.map((game, index) => (
-            <div key={index} style={styles.gameCard}>
-              <img src={game.image} alt={game.name} style={styles.gameCardImage} />
-              <h4 style={styles.gameCardTitle}>{game.name}</h4>
-              <p style={styles.gameCardSubtitle}>{game.ign}</p>
-              <div style={styles.gameCardStats}>
-                <div style={styles.gameCardStat}>{game.rank}</div>
-                <div style={styles.gameCardStat}>{game.hours} hours</div>
-                {Object.entries(game.stats).map(([key, value]) => (
-                  <div key={key} style={styles.gameCardStat}>{key}: {value}</div>
-                ))}
-              </div>
-              <div style={styles.gameCardAchievements}>
-                {game.achievements.slice(0, 2).map((achievement, i) => (
-                  <span key={i} style={styles.achievementTag}>
-                    {achievement.icon} {achievement.title}
-                  </span>
-                ))}
-              </div>
-            </div>
+          {games.map((game, i) => (
+            <GameCard key={i} {...game} />
           ))}
         </div>
         
+        {/* Achievements + Recent Activity */}
         <div style={styles.sideContainer} className="chio-side-container">
-          <div style={styles.achievementsCard}>
-            <h3>Achievements</h3>
-            {achievements.map((item, i) => (
-              <div key={i} style={styles.innerCard}>
-                <span>{item.icon}</span>
-                <h4>{item.title}</h4>
-                <p>{item.detail}</p>
-              </div>
-            ))}
-          </div>
-          
-          <div style={styles.achievementsCard}>
-            <h3>Recent Activity</h3>
-            {recentActivity.map((item, i) => (
-              <div key={i} style={styles.innerCard}>
-                <span>{item.icon}</span>
-                <h4>{item.title}</h4>
-                <p>{item.detail}</p>
-              </div>
-            ))}
-          </div>
+          <ContainerCard
+            title="Achievements"
+            items={achievements}
+            className="achievements-card"
+          />
+          <ContainerCard
+            title="Recent Activity"
+            items={recentActivity}
+            className="recent-activity-card"
+          />
         </div>
         
+        {/* Chart */}
         <div style={styles.chartCard}>
-          <h3>Most Played Games (Hours)</h3>
+          <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '12px', color: '#fff' }}>Most Played Games (Hours)</h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart
               data={chartData}
