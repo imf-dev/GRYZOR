@@ -1,5 +1,5 @@
 /* Dashboard */
-.dashboard {
+.chio-profile-container .dashboard {
   width: 100%;
   min-height: 100vh;
   background: radial-gradient(circle at top left, rgba(0, 255, 255, 0.15), transparent 40%),
@@ -23,7 +23,7 @@
 }
 
 /* Main Layout */
-.main-layout {
+.chio-profile-container .main-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
@@ -31,7 +31,7 @@
 }
 
 /* Top row */
-.profile-card {
+.chio-profile-container .profile-card {
   grid-column: 1 / span 2;
  background: linear-gradient(180deg,  #0ac3e3, #7383ef);
   padding: 16px;
@@ -40,7 +40,7 @@
 }
 
 /* Second row: Stats + Milestone */
-.global-stats {
+.chio-profile-container .global-stats {
   grid-column: 1 / span 1;
   background: #1c1f2b; /* dark background for visibility */
   padding: 16px;
@@ -48,7 +48,7 @@
   box-shadow: 0 6px 18px rgba(35, 65, 153, 0.443);
 }
 
-.milestone-card {
+.chio-profile-container .milestone-card {
   grid-column: 2 / span 1;
   background: #1c1f2b;
   padding: 16px;
@@ -57,7 +57,7 @@
 }
 
 /* Game Cards Grid */
-.game-card-container {
+.chio-profile-container .game-card-container {
   grid-column: 1 / span 2;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
