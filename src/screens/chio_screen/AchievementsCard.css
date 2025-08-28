@@ -25,14 +25,7 @@
   background: rgba(130, 56, 56, 0.05);
   padding: 10px 14px;
   border-radius: 12px;
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-}
-
-.chio_inner-section-card:hover {
-  transform: translateY(-4px) scale(1.02);
-  background: rgba(46, 76, 136, 0.12);
-  box-shadow: 0 6px 12px rgba(201, 57, 57, 0.3);
 }
 
 .chio_inner-title {

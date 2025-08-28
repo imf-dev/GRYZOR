@@ -65,10 +65,6 @@ function GlobalStatsCard({
   );
 }
 
-useEffect(() => {
-  window.scrollTo(0, 0); //top ang una makita
-}, []);
-
 // Milestone Card Component
 function MilestoneCard({ label, description, progress }) {
   return (
@@ -117,7 +113,7 @@ function MilestoneCard({ label, description, progress }) {
   );
 }
 
-// Game Card Component (matching Chio's original design)
+// Game Card Component (no hover effects)
 function GameCard({ name, ign, hours, rank, stats, image, achievements }) {
   return (
     <div
@@ -132,8 +128,6 @@ function GameCard({ name, ign, hours, rank, stats, image, achievements }) {
         padding: "16px",
         boxShadow: "0 6px 18px rgba(5, 197, 231, 0.365)",
         color: "#ffffff",
-        transition:
-          "transform 0.25s ease, box-shadow 0.25s ease, background 0.4s ease",
       }}
     >
       <img
@@ -247,7 +241,7 @@ function GameCard({ name, ign, hours, rank, stats, image, achievements }) {
   );
 }
 
-// Container Card Component
+// Container Card Component (no hover effects)
 function ContainerCard({ title, items, className }) {
   return (
     <div
@@ -303,6 +297,10 @@ function ContainerCard({ title, items, className }) {
 }
 
 function ChioProfile() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const profile = {
     gamerTag: "swzvzn",
     discord: "swzvzn",
@@ -347,7 +345,7 @@ function ChioProfile() {
       ign: "ign: swzvzn",
       hours: 890,
       rank: "AR 60",
-      stats: { Characters: 45, "Spiral Abyss": "36★" },
+      stats: { Characters: 45, "Spiral Abyss": "36⭐" },
       image: gi,
       achievements: [
         { title: "AR 60", icon: "⭐" },
@@ -416,7 +414,7 @@ function ChioProfile() {
   ];
 
   const recentActivity = [
-    { title: "Logged in", detail: "Today at 9:30 AM", icon: "🔑" },
+    { title: "Logged in", detail: "Today at 9:30 AM", icon: "📓" },
     { title: "Victory!", detail: "Valorant match (13-10)", icon: "🏆" },
     {
       title: "Daily Quest",
@@ -430,7 +428,7 @@ function ChioProfile() {
     hours: g.hours,
   }));
 
-  // Inline styles to completely isolate Chio's design
+  // Inline styles with all hover effects and transitions removed
   const styles = {
     dashboard: {
       width: "100%",
@@ -462,7 +460,6 @@ function ChioProfile() {
       borderRadius: "16px",
       overflow: "hidden",
       boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
-      transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
       width: "100%",
       height: "320px",
       backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(26, 29, 41, 0.95)), url(${ae})`,
@@ -523,8 +520,6 @@ function ChioProfile() {
       position: "relative",
       width: "100px",
       height: "100px",
-      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-      cursor: "pointer",
     },
     avatar: {
       width: "100%",
@@ -532,7 +527,6 @@ function ChioProfile() {
       borderRadius: "50%",
       objectFit: "cover",
       border: "3px solid #14e125d2",
-      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
       filter: "brightness(1)",
     },
     statusIndicator: {
@@ -568,8 +562,6 @@ function ChioProfile() {
       color: "#fff",
       margin: "0 0 8px 0",
       textShadow: "0 2px 4px rgba(0, 0, 0, 0.5)",
-      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-      cursor: "pointer",
     },
     statusBadge: {
       background: "rgba(20, 225, 37, 0.2)",
@@ -579,8 +571,6 @@ function ChioProfile() {
       fontSize: "14px",
       fontWeight: 600,
       textTransform: "uppercase",
-      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-      cursor: "pointer",
       border: "1px solid transparent",
     },
     discord: {
@@ -588,8 +578,6 @@ function ChioProfile() {
       fontSize: "16px",
       margin: "8px 0 0 0",
       textShadow: "0 1px 2px rgba(0, 0, 0, 0.5)",
-      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-      cursor: "pointer",
     },
     rightSection: {
       display: "flex",
@@ -629,7 +617,6 @@ function ChioProfile() {
       borderRadius: "8px",
       padding: "8px",
       cursor: "pointer",
-      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
       color: "#fff",
       position: "relative",
       overflow: "hidden",
@@ -671,159 +658,31 @@ function ChioProfile() {
             50% { opacity: 0.7; transform: scale(1.1); }
           }
           
-          @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
-          }
-          
-          @keyframes glow {
-            0%, 100% { box-shadow: 0 0 5px rgba(20, 225, 37, 0.3); }
-            50% { box-shadow: 0 0 20px rgba(20, 225, 37, 0.6); }
-          }
-          
-          @keyframes slideIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          
-          @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
-          
-          /* Profile Card Hover Effects */
-          .chio-profile-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(20, 225, 37, 0.3);
-          }
-          
-          /* Avatar Hover Effects */
-          .chio-avatar-wrapper:hover {
-            transform: scale(1.1);
-          }
-          
-          .chio-avatar-wrapper:hover .chio-avatar {
-            filter: brightness(1.2) contrast(1.1);
-            border-color: #14e125;
-            box-shadow: 0 0 20px rgba(20, 225, 37, 0.6);
-          }
-          
-          /* Gamer Tag Hover Effects */
-          .chio-gamer-tag:hover {
-            color: #14e125d2;
-            text-shadow: 0 0 10px rgba(20, 225, 37, 0.8);
-            transform: scale(1.05);
-          }
-          
-          /* Status Badge Hover Effects */
-          .chio-status-badge:hover {
-            background: rgba(20, 225, 37, 0.3);
-            border-color: #14e125d2;
-            transform: scale(1.05);
-            animation: glow 1s infinite;
-          }
-          
-          /* Discord Hover Effects */
-          .chio-discord:hover {
-            color: #14e125d2;
-            text-shadow: 0 0 8px rgba(20, 225, 37, 0.6);
-            transform: scale(1.02);
-          }
-          
-          /* Social Buttons Hover Effects */
-          .chio-social-btn:hover {
-            background: rgba(20, 225, 37, 0.2);
-            border-color: #14e125d2;
-            transform: translateY(-2px) scale(1.1);
-            box-shadow: 0 5px 15px rgba(20, 225, 37, 0.4);
-          }
-          
-          .chio-social-btn:hover svg {
-            transform: scale(1.2);
-            filter: drop-shadow(0 0 5px rgba(20, 225, 37, 0.8));
-          }
-          
-          /* Game Cards Hover Effects */
-          .chio-game-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 12px 30px rgba(5, 197, 231, 0.5);
-            background: linear-gradient(180deg, #1233ebb8, #8c0ba99f, #14e125b8);
-          }
-          
-          /* Stats Cards Hover Effects */
-          .chio-stats-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(35, 65, 153, 0.6);
-            background: #1c1f2b;
-          }
-          
-          /* Milestone Card Hover Effects */
-          .chio-milestone-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(45, 18, 197, 0.6);
-            background: #1c1f2b;
-          }
-          
-          /* Container Cards Hover Effects */
-          .chio-container-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(2, 230, 131, 0.6);
-            background: #12151a;
-          }
-          
-          /* Chart Card Hover Effects */
-          .chio-chart-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(2, 230, 131, 0.6);
-            background: #12151a;
-          }
-          
-          /* Animation Classes */
-          .chio-float {
-            animation: float 3s ease-in-out infinite;
-          }
-          
-          .chio-slide-in {
-            animation: slideIn 0.6s ease-out;
-          }
-          
-          .chio-fade-in {
-            animation: fadeIn 0.8s ease-out;
-          }
-          
-          /* Smooth transitions for all interactive elements */
-          .chio-interactive {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          }
-          
           @media (max-width: 1200px) {
-            .chio-game-card-container {
+            .game-card-container {
               grid-template-columns: repeat(2, 1fr) !important;
             }
           }
           
           @media (max-width: 768px) {
-            .chio-main-layout {
+            .main-layout {
               grid-template-columns: 1fr !important;
             }
             
-            .chio-game-card-container {
+            .game-card-container {
               grid-template-columns: 1fr !important;
             }
             
-            .chio-side-container {
+            .side-container {
               flex-direction: column !important;
             }
           }
         `}
       </style>
 
-      <div style={styles.mainLayout} className="chio-main-layout">
+      <div style={styles.mainLayout}>
         {/* Profile Card */}
-        <div
-          style={styles.profileCard}
-          className="chio-profile-card chio-slide-in"
-        >
+        <div style={styles.profileCard}>
           <div style={styles.profileContent}>
             <div style={styles.leftSection}>
               <div style={styles.profileStats}>
@@ -841,15 +700,11 @@ function ChioProfile() {
             </div>
 
             <div style={styles.centerSection}>
-              <div
-                style={styles.avatarWrapper}
-                className="chio-avatar-wrapper chio-float"
-              >
+              <div style={styles.avatarWrapper}>
                 <img
                   src={profile.avatar}
                   alt={profile.gamerTag}
                   style={styles.avatar}
-                  className="chio-avatar"
                 />
                 <div style={styles.statusIndicator}>
                   <div style={styles.statusDot} />
@@ -857,24 +712,9 @@ function ChioProfile() {
               </div>
 
               <div style={styles.centerInfo}>
-                <h2
-                  style={styles.gamerTag}
-                  className="chio-gamer-tag chio-interactive"
-                >
-                  {profile.gamerTag}
-                </h2>
-                <span
-                  style={styles.statusBadge}
-                  className="chio-status-badge chio-interactive"
-                >
-                  {profile.status}
-                </span>
-                <p
-                  style={styles.discord}
-                  className="chio-discord chio-interactive"
-                >
-                  @{profile.discord}
-                </p>
+                <h2 style={styles.gamerTag}>{profile.gamerTag}</h2>
+                <span style={styles.statusBadge}>{profile.status}</span>
+                <p style={styles.discord}>@{profile.discord}</p>
               </div>
             </div>
 
@@ -889,7 +729,6 @@ function ChioProfile() {
               <div style={styles.socialButtons}>
                 <button
                   style={styles.socialBtn}
-                  className="chio-social-btn chio-interactive"
                   onClick={() => window.open(profile.discordLink, "_blank")}
                   title="Discord Profile"
                 >
@@ -898,16 +737,12 @@ function ChioProfile() {
                     height="20"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    style={{
-                      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                    }}
                   >
                     <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.211.375-.445.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" />
                   </svg>
                 </button>
                 <button
                   style={styles.socialBtn}
-                  className="chio-social-btn chio-interactive"
                   onClick={() => window.open(profile.twitchLink, "_blank")}
                   title="Twitch Channel"
                 >
@@ -916,9 +751,6 @@ function ChioProfile() {
                     height="20"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    style={{
-                      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                    }}
                   >
                     <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z" />
                   </svg>
@@ -928,49 +760,32 @@ function ChioProfile() {
           </div>
         </div>
 
-        <div className="chio-stats-card chio-fade-in">
-          <GlobalStatsCard {...globalStats} />
-        </div>
-        <div className="chio-milestone-card chio-fade-in">
-          <MilestoneCard {...milestone} />
-        </div>
+        <GlobalStatsCard {...globalStats} />
+        <MilestoneCard {...milestone} />
 
         {/* Game Cards Grid */}
-        <div
-          style={styles.gameCardContainer}
-          className="chio-game-card-container"
-        >
+        <div style={styles.gameCardContainer} className="game-card-container">
           {games.map((game, i) => (
-            <div
-              key={i}
-              className="chio-game-card chio-slide-in"
-              style={{ animationDelay: `${i * 0.1}s` }}
-            >
-              <GameCard {...game} />
-            </div>
+            <GameCard key={i} {...game} />
           ))}
         </div>
 
         {/* Achievements + Recent Activity */}
-        <div style={styles.sideContainer} className="chio-side-container">
-          <div className="chio-container-card chio-fade-in">
-            <ContainerCard
-              title="Achievements"
-              items={achievements}
-              className="achievements-card"
-            />
-          </div>
-          <div className="chio-container-card chio-fade-in">
-            <ContainerCard
-              title="Recent Activity"
-              items={recentActivity}
-              className="recent-activity-card"
-            />
-          </div>
+        <div style={styles.sideContainer} className="side-container">
+          <ContainerCard
+            title="Achievements"
+            items={achievements}
+            className="achievements-card"
+          />
+          <ContainerCard
+            title="Recent Activity"
+            items={recentActivity}
+            className="recent-activity-card"
+          />
         </div>
 
         {/* Chart */}
-        <div style={styles.chartCard} className="chio-chart-card chio-fade-in">
+        <div style={styles.chartCard}>
           <h3
             style={{
               fontSize: "18px",

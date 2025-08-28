@@ -2,7 +2,7 @@
   margin-bottom: 10px;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #ffffff; 
+  color: #ffffff;
 }
 
 .columns {
@@ -13,7 +13,7 @@
 
 .columns h4 {
   margin: 6px 0;
-  color: #cbd5e1; 
+  color: #cbd5e1;
   font-weight: 500;
 }
 
@@ -21,25 +21,19 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  background: #1e293b; 
+  background: #1e293b;
   padding: 10px 12px;
   border-radius: 12px;
   margin-bottom: 10px;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.quest:hover {
-  background: #334155; 
-  transform: translateY(-2px);
 }
 
 .quest input {
-  accent-color: #3b82f6; 
+  accent-color: #3b82f6;
 }
 
 .quest .text {
   flex: 1;
-  color: #f8fafc; 
+  color: #f8fafc;
   font-size: 0.95rem;
 }
 

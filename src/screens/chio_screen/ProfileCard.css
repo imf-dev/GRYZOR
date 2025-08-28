@@ -3,37 +3,31 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
   height: 200px;
 
   /* Full background with dark overlay */
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(26, 29, 41, 0.95)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(26, 29, 41, 0.95)),
     url("../assets/bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.profile-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 48px rgba(17, 73, 115, 0.747);
-}
 .cover-photo {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;   /* make it stretch full height */
-  overflow:hidden;
-  z-index: 0;  /* stays behind content */
+  bottom: 0; /* make it stretch full height */
+  overflow: hidden;
+  z-index: 0; /* stays behind content */
 }
 
 .cover-image {
   width: 110%;
   height: 110%;
-  object-fit: cover;   /* fill the card without distortion */
+  object-fit: cover; /* fill the card without distortion */
   filter: brightness(0.7);
 }
 
@@ -121,7 +115,7 @@
 .avatar {
   width: 100%;
   height: 100%;
-  object-fit:fill;
+  object-fit: fill;
   border-radius: 50%;
 }
 
@@ -172,7 +166,7 @@
 .gamer-tag {
   font-size: 21px;
   font-weight: 700;
-  font-family:monospace;
+  font-family: monospace;
   margin: 0;
   color: #3eb0d2;
 }
@@ -249,20 +243,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-}
-
-.social-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
 .discord-btn {
@@ -271,26 +253,10 @@
   border: 1px solid rgba(88, 101, 242, 0.2);
 }
 
-.discord-btn:hover {
-  background: rgba(88, 101, 242, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
-}
-
 .twitch-btn {
   background: rgba(145, 70, 255, 0.1);
   color: #9146ff;
   border: 1px solid rgba(145, 70, 255, 0.2);
-}
-
-.twitch-btn:hover {
-  background: rgba(145, 70, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(145, 70, 255, 0.3);
-}
-
-.social-btn:active {
-  transform: translateY(0);
 }
 
 .location .flag {
@@ -301,39 +267,39 @@
   margin-right: 6px;
 }
 
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .profile-card {
     height: 180px;
   }
-  
+
   .profile-content {
     padding: 40px 16px 16px;
     flex-direction: column;
     gap: 12px;
   }
-  
-  .left-section, .right-section {
+
+  .left-section,
+  .right-section {
     flex: none;
   }
-  
+
   .profile-stats {
     flex-direction: row;
     gap: 20px;
     justify-content: center;
   }
-  
+
   .avatar-wrapper {
     width: 80px;
     height: 80px;
     margin-top: -40px;
   }
-  
+
   .gamer-tag {
     font-size: 16px;
   }
-  
+
   .right-section {
     align-items: center;
   }

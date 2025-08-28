@@ -5,7 +5,7 @@
   box-shadow: 0 6px 14 rgba(35, 65, 153, 0.443);
   width: 100%;
   color: #fff;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .stats-content {
@@ -32,7 +32,12 @@
 
 .section-divider {
   width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
   min-height: 120px;
   flex-shrink: 0;
 }
@@ -75,7 +80,6 @@
   height: 100%;
   background: linear-gradient(90deg, #22c55e, #4ade80);
   box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
-  transition: width 0.3s ease;
 }
 
 .progress-text {
