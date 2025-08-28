@@ -48,8 +48,7 @@ const FanerProfile = () => {
     },
     {
       name: "Mobile Legends: Bang Bang",
-      imageUrl:
-        "https://cdn.wallpapersafari.com/59/8/MjlBeW.png",
+      imageUrl: "https://cdn.wallpapersafari.com/59/8/MjlBeW.png",
       playtime: "1,820 hrs",
       ign: "rahwr",
       achievements: [

@@ -94,8 +94,18 @@ const Header = () => {
     setSearchResults(results);
   };
 
+  // Mga profile IDs to route paths
+  const profileRoutes = {
+    1: "chio",
+    2: "faner",
+    3: "wenceslao",
+    4: "ipong",
+    5: "demo", // temporary for Nicolo
+  };
+
   const handleSelectProfile = (id) => {
-    navigate(`/GRYZOR/profile/${id}`);
+    const route = profileRoutes[id] || "demo"; // fallback to demo if not found
+    navigate(`/GRYZOR/profile/${route}`);
     setSearchTerm("");
     setSearchResults([]);
   };

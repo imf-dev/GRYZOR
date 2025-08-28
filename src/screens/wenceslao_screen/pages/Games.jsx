@@ -49,7 +49,11 @@ function Games() {
       <div className="wenc_games-grid">
         {games.map((game, index) => (
           <div key={index} className="wenc_game-card wenc_milestone-card">
-            <img src={game.image} alt={game.title} className="wenc_card-image" />
+            <img
+              src={game.image}
+              alt={game.title}
+              className="wenc_card-image"
+            />
 
             {/* Bottom overlay */}
             <div className="wenc_card-bottom">
