@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chio's Profile</title>
+    <script src="https://unpkg.com/react@19/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@19/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/recharts@3.1.2/dist/umd/Recharts.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f1216;
+            color: #e6e8ec;
+        }
+        
+        .app-root {
+            background: var(--bg);
+            min-height: 100vh;
+            color: var(--ink);
+            font-family: var(--font);
+        }
+        
+        .card {
+            background: var(--panel);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 16px;
+        }
+        
+        h1, h2, h3, h4 { 
+            margin: 0 0 10px; 
+        }
+        
+        :root {
+            --bg: #0f1216;
+            --panel: #171b22;
+            --ink: #e6e8ec;
+            --ink-dim: #a9afbb;
+            --accent: #7ddd7a;
+            --accent-2: #5aa3ff;
+            --warn: #ffcc66;
+            --good: #6ee7b7;
+            --shadow: 0 8px 18px rgba(0,0,0,.35);
+            --radius: 14px;
+            --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+        }
+        
+        /* Dashboard Styles */
+        .dashboard {
+            width: 100%;
+            min-height: 100vh;
+            background: radial-gradient(circle at top left, rgba(0, 255, 255, 0.15), transparent 40%),
+                        radial-gradient(circle at bottom right, rgba(255, 0, 255, 0.15), transparent 40%),
+                        linear-gradient(135deg, #00000097, #07034885, #2a1b0f);
+            background-size: 200% 200%;
+            animation: neonShift 12s ease infinite;
+            color: #fff;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        @keyframes neonShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            gap: 20px;
+        }
+        
+        .profile-card {
+            grid-column: 1 / span 2;
+            background: linear-gradient(180deg, #0ac3e3, #7383ef);
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(73, 8, 225, 0.443);
+        }
+        
+        .global-stats {
+            grid-column: 1 / span 1;
+            background: #1c1f2b;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(35, 65, 153, 0.443);
+        }
+        
+        .milestone-card {
+            grid-column: 2 / span 1;
+            background: #1c1f2b;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(45, 18, 197, 0.443);
+        }
+        
+        .game-card-container {
+            grid-column: 1 / span 2;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        
+        .container-card {
+            background: #12151a;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(48, 15, 167, 0.443);
+        }
+        
+        .side-container {
+            grid-column: 1 / span 2;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .achievements-card, .recent-activity-card {
+            flex: 1;
+            min-width: 250px;
+            background: #12151a;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(2, 230, 131, 0.443);
+        }
+        
+        .chart-card {
+            grid-column: 1 / span 2;
+            background: #12151a;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(2, 230, 131, 0.443);
+        }
+        
+        .container-title, .chart-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        
+        .inner-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .inner-card {
+            background: #1c1f2b;
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            color: #fff;
+        }
+        
+        @media (max-width: 1200px) {
+            .game-card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .game-card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .side-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="chio-profile-root"></div>
+    
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } = Recharts;
+        
+        function Dashboard() {
+            const [selectedGame, setSelectedGame] = useState(null);
+            
+            const games = [
+                {
+                    name: "Valorant",
+                    imageUrl: "/src/assets/valorant.jpeg",
+                    playtime: "1,250 hrs",
+                    ign: "swzvzn",
+                    achievements: ["Radiant", "Ace", "Clutch Master", "Team Player"]
+                },
+                {
+                    name: "Genshin Impact",
+                    imageUrl: "/src/assets/genshin.jpg",
+                    playtime: "890 hrs",
+                    ign: "swzvzn",
+                    achievements: ["AR 60", "Spiral Abyss", "Explorer", "Collector"]
+                },
+                {
+                    name: "osu!",
+                    imageUrl: "/src/assets/osu.jpg",
+                    playtime: "650 hrs",
+                    ign: "swzvzn",
+                    achievements: ["Rank #1000", "FC Master", "Speed Demon"]
+                }
+            ];
+            
+            const achievements = [
+                { title: "First Blood", detail: "First kill in Valorant", icon: "⚔️" },
+                { title: "Explorer", detail: "100% map completion", icon: "🗺️" },
+                { title: "Speed Demon", detail: "Beat 100 songs", icon: "🎵" }
+            ];
+            
+            const recentActivity = [
+                { title: "Valorant Match", detail: "Won 13-7", icon: "🎮" },
+                { title: "Genshin Daily", detail: "Completed commissions", icon: "⭐" },
+                { title: "osu! Session", detail: "New personal best", icon: "🎯" }
+            ];
+            
+            const chartData = [
+                { name: 'Valorant', hours: 1250 },
+                { name: 'Genshin', hours: 890 },
+                { name: 'osu!', hours: 650 },
+                { name: 'Others', hours: 400 }
+            ];
+            
+            return (
+                <div className="dashboard">
+                    <div className="main-layout">
+                        <div className="profile-card">
+                            <h2>Jennifer Leigh Chio</h2>
+                            <p>@swzvzn</p>
+                            <div style={{ display: 'flex', gap: '20px', marginTop: '10px' }}>
+                                <div>
+                                    <strong>3,190</strong> hours played
+                                </div>
+                                <div>
+                                    <strong>45</strong> day streak
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="global-stats">
+                            <h3>Global Stats</h3>
+                            <ul>
+                                <li>Games Tracked: 12</li>
+                                <li>Total Achievements: 156</li>
+                                <li>Average Level: 85</li>
+                                <li>Weekly Hours: 42</li>
+                            </ul>
+                        </div>
+                        
+                        <div className="milestone-card">
+                            <h3>Next Milestone</h3>
+                            <p>Reach 4,000 total hours</p>
+                            <div style={{ width: '100%', height: '8px', background: 'rgba(255,255,255,0.2)', borderRadius: '4px', marginTop: '10px' }}>
+                                <div style={{ width: '80%', height: '100%', background: '#7ddd7a', borderRadius: '4px' }}></div>
+                            </div>
+                            <span>80% Complete</span>
+                        </div>
+                        
+                        <div className="game-card-container">
+                            {games.map((game, index) => (
+                                <div key={index} className="container-card">
+                                    <h4>{game.name}</h4>
+                                    <p>{game.playtime} • {game.ign}</p>
+                                    <div style={{ marginTop: '10px' }}>
+                                        {game.achievements.slice(0, 2).map((achievement, i) => (
+                                            <span key={i} style={{ 
+                                                background: 'rgba(125, 221, 122, 0.2)', 
+                                                padding: '2px 8px', 
+                                                borderRadius: '4px', 
+                                                fontSize: '12px',
+                                                marginRight: '5px'
+                                            }}>
+                                                {achievement}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        
+                        <div className="side-container">
+                            <div className="achievements-card">
+                                <h3>Achievements</h3>
+                                {achievements.map((item, i) => (
+                                    <div key={i} className="inner-card">
+                                        <span>{item.icon}</span>
+                                        <h4>{item.title}</h4>
+                                        <p>{item.detail}</p>
+                                    </div>
+                                ))}
+                            </div>
+                            
+                            <div className="recent-activity-card">
+                                <h3>Recent Activity</h3>
+                                {recentActivity.map((item, i) => (
+                                    <div key={i} className="inner-card">
+                                        <span>{item.icon}</span>
+                                        <h4>{item.title}</h4>
+                                        <p>{item.detail}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        
+                        <div className="chart-card">
+                            <h3>Gaming Hours</h3>
+                            <ResponsiveContainer width="100%" height={300}>
+                                <BarChart data={chartData}>
+                                    <CartesianGrid strokeDasharray="3 3" />
+                                    <XAxis dataKey="name" />
+                                    <YAxis />
+                                    <Tooltip />
+                                    <Bar dataKey="hours" fill="#7ddd7a" />
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        
+        ReactDOM.render(<Dashboard />, document.getElementById('chio-profile-root'));
+    </script>
+</body>
+</html>
