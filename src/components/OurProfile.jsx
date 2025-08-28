@@ -58,7 +58,9 @@ const OurProfile = () => {
   const handleCardClick = (index) => {
     setCurrentIndex(index);
 
-    if (profiles[index].id === 2) {
+    if (profiles[index].id === 1) {
+      navigate("/GRYZOR/profile/chio");
+    } else if (profiles[index].id === 2) {
       navigate("/GRYZOR/profile/faner");
     }
   };

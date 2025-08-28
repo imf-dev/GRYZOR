@@ -1,0 +1,52 @@
+.outer-section-card {
+  background: #12151a;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.outer-section-card h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.inner-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.inner-section-card {
+  background: rgba(130, 56, 56, 0.05);
+  padding: 10px 14px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;  /* shows it's clickable/hoverable */
+}
+
+.inner-section-card:hover {
+  transform: translateY(-4px) scale(1.02);  /* slightly lifts and scales */
+  background: rgba(46, 76, 136, 0.12);   /* slightly brighter background */
+  box-shadow: 0 6px 12px rgba(201, 57, 57, 0.3);  /* subtle shadow on hover */
+}
+
+.inner-title {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.inner-detail {
+  font-size: 13px;
+  color: #aaa;
+  margin: 0;
+}
+
+.empty {
+  font-size: 14px;
+  color: #777;
+}

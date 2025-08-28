@@ -1,0 +1,340 @@
+.profile-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  height: 200px;
+
+  /* Full background with dark overlay */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(26, 29, 41, 0.95)),
+    url("../assets/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.profile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(17, 73, 115, 0.747);
+}
+.cover-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;   /* make it stretch full height */
+  overflow:hidden;
+  z-index: 0;  /* stays behind content */
+}
+
+.cover-image {
+  width: 110%;
+  height: 110%;
+  object-fit: cover;   /* fill the card without distortion */
+  filter: brightness(0.7);
+}
+
+.cover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(26, 29, 41, 0.3) 0%,
+    rgba(26, 29, 41, 0.9) 100%
+  );
+}
+
+/* Profile Content - 3 Column Layout */
+.profile-content {
+  position: relative;
+  padding: 50px 20px 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  gap: 20px;
+}
+
+/* Left Section - Stats */
+.left-section {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.profile-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: monospace;
+  color: #14e125d2;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 10px;
+  color: #838aa7;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Center Section - Avatar & IGN */
+.center-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid #1a1d29;
+  background: #1a1d29;
+  flex-shrink: 0;
+  margin-top: -40px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit:fill;
+  border-radius: 50%;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background: #1a1d29;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #1a1d29;
+}
+
+.status-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #6b7280;
+}
+
+.status-indicator[data-status="online"] .status-dot {
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.status-indicator[data-status="away"] .status-dot {
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+.status-indicator[data-status="busy"] .status-dot {
+  background: #ef4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+}
+
+.center-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.gamer-tag {
+  font-size: 21px;
+  font-weight: 700;
+  font-family:monospace;
+  margin: 0;
+  color: #3eb0d2;
+}
+
+.status-badge {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.discord {
+  font-size: 15px;
+  color: #2ed6df;
+  margin: 0;
+  font-weight: 500;
+  font-family: monospace;
+}
+
+/* Right Section - Location & Social */
+.right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d1d5db;
+}
+
+.flag {
+  font-size: 18px;
+  background-image: URL("../assets/ph.png");
+}
+
+.location-text {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.separator {
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(107, 114, 128, 0.5),
+    transparent
+  );
+  margin: 4px 0;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.discord-btn {
+  background: rgba(88, 101, 242, 0.1);
+  color: #5865f2;
+  border: 1px solid rgba(88, 101, 242, 0.2);
+}
+
+.discord-btn:hover {
+  background: rgba(88, 101, 242, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+}
+
+.twitch-btn {
+  background: rgba(145, 70, 255, 0.1);
+  color: #9146ff;
+  border: 1px solid rgba(145, 70, 255, 0.2);
+}
+
+.twitch-btn:hover {
+  background: rgba(145, 70, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(145, 70, 255, 0.3);
+}
+
+.social-btn:active {
+  transform: translateY(0);
+}
+
+.location .flag {
+  width: 24px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 3px; /* optional, for smoother look */
+  margin-right: 6px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-card {
+    height: 180px;
+  }
+  
+  .profile-content {
+    padding: 40px 16px 16px;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .left-section, .right-section {
+    flex: none;
+  }
+  
+  .profile-stats {
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .avatar-wrapper {
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+  }
+  
+  .gamer-tag {
+    font-size: 16px;
+  }
+  
+  .right-section {
+    align-items: center;
+  }
+}

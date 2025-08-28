@@ -1,0 +1,145 @@
+/* Dashboard */
+.dashboard {
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(0, 255, 255, 0.15), transparent 40%),
+              radial-gradient(circle at bottom right, rgba(255, 0, 255, 0.15), transparent 40%),
+              linear-gradient(135deg, #00000097, #07034885, #2a1b0f);
+  background-size: 200% 200%;
+  animation: neonShift 12s ease infinite;
+  color: #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+@keyframes neonShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Main Layout */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 20px;
+}
+
+/* Top row */
+.profile-card {
+  grid-column: 1 / span 2;
+ background: linear-gradient(180deg,  #0ac3e3, #7383ef);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(73, 8, 225, 0.443);
+}
+
+/* Second row: Stats + Milestone */
+.global-stats {
+  grid-column: 1 / span 1;
+  background: #1c1f2b; /* dark background for visibility */
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(35, 65, 153, 0.443);
+}
+
+.milestone-card {
+  grid-column: 2 / span 1;
+  background: #1c1f2b;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(45, 18, 197, 0.443);
+}
+
+/* Game Cards Grid */
+.game-card-container {
+  grid-column: 1 / span 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.container-card {
+  background: #12151a;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(48, 15, 167, 0.443);
+}
+
+/* Side container for achievements + recent activity */
+.side-container {
+  grid-column: 1 / span 2;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.achievements-card, .recent-activity-card {
+  flex: 1;
+  min-width: 250px;
+  background: #12151a;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(2, 230, 131, 0.443);
+}
+
+/* Chart Card */
+.chart-card {
+  grid-column: 1 / span 2;
+  background: #12151a;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(2, 230, 131, 0.443);
+}
+
+/* Container Titles */
+.container-title,
+.chart-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+/* Inner Cards */
+.inner-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inner-card {
+  background: #1c1f2b;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #fff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .game-card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .game-card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .side-container {
+    flex-direction: column;
+  }
+}
