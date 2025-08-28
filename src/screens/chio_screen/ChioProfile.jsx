@@ -65,10 +65,6 @@ function GlobalStatsCard({
   );
 }
 
-useEffect(() => {
-  window.scrollTo(0, 0); //top ang una makita
-}, []);
-
 // Milestone Card Component
 function MilestoneCard({ label, description, progress }) {
   return (
@@ -303,6 +299,10 @@ function ContainerCard({ title, items, className }) {
 }
 
 function ChioProfile() {
+  useEffect(() => {
+    window.scrollTo(0, 0); //top ang una makita
+  }, []);
+
   const profile = {
     gamerTag: "swzvzn",
     discord: "swzvzn",

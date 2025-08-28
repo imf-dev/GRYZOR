@@ -5,11 +5,11 @@ import logo from "../assets/GRYZOR.svg";
 
 // Add profiles data here or import from a separate file
 const profilesData = [
-  { id: 1, realName: "Jennifer Leigh Chio", ign: "swzvzn" },
-  { id: 2, realName: "Irah Mae Faner", ign: "yorchigt" },
-  { id: 3, realName: "Cyrene Isabelle Wenceslao", ign: "Izabel" },
-  { id: 4, realName: "Aveja Cedrick Ipong", ign: "bas_dash" },
-  { id: 5, realName: "Nicolo Ariola", ign: "Xylo" },
+  { id: "chio", realName: "Jennifer Leigh Chio", ign: "swzvzn" },
+  { id: "faner", realName: "Irah Mae Faner", ign: "yorchigt" },
+  { id: "demo", realName: "Cyrene Isabelle Wenceslao", ign: "Izabel" },
+  { id: "ipong", realName: "Aveja Cedrick Ipong", ign: "bas_dash" },
+  { id: "demo", realName: "Nicolo Ariola", ign: "Xylo" },
 ];
 
 const Header = () => {
