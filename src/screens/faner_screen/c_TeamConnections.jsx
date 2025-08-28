@@ -185,7 +185,7 @@ const TeamConnections = ({ teamMembers }) => {
           </span>
         </div>
         <div className="team-established">
-          <span>Squad established • 2019</span>
+          <span>Squad established • 2023</span>
         </div>
       </div>
     </div>

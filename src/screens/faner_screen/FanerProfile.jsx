@@ -49,7 +49,7 @@ const FanerProfile = () => {
     {
       name: "Mobile Legends: Bang Bang",
       imageUrl:
-        "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/04/mobile-legends-bang-bang-codes.jpg",
+        "https://cdn.wallpapersafari.com/59/8/MjlBeW.png",
       playtime: "1,820 hrs",
       ign: "rahwr",
       achievements: [
@@ -62,7 +62,7 @@ const FanerProfile = () => {
     {
       name: "NPC or Die",
       imageUrl:
-        "https://tr.rbxcdn.com/180DAY-9faa833c66621d662787f7b096ce8e4b/500/280/Image/Jpeg/noFilter",
+        "https://tse1.mm.bing.net/th/id/OIP.LMKHyLFtbQzxpk7I_4aKFQHaEK?cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3",
       playtime: "650 hrs",
       ign: "Dunkin",
       achievements: ["ACE", "CLOSE CALL", "LAST ONE", "LONG SHOT"],
@@ -96,7 +96,7 @@ const FanerProfile = () => {
     {
       name: "Arsenal",
       imageUrl:
-        "https://assetsio.gnwcdn.com/aresnal.jpeg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+        "https://cdnb.artstation.com/p/assets/images/images/029/696/741/large/dily-gfx-arsneal-icnon-watermark.jpg?1598369595",
       playtime: "1,200 hrs",
       ign: "Dunkin",
       achievements: [
@@ -109,7 +109,7 @@ const FanerProfile = () => {
     {
       name: "Metal Fight Beyblade",
       imageUrl:
-        "https://www.video-games-museum.com/en/screenshots/PSP/1/43942-title-Metal-Fight-Beyblade-Portable-Chouzetsu-Tensei-Vulcan-Horses.jpg",
+        "https://tse2.mm.bing.net/th/id/OIP.T-SMC9UJqakJzolFfX529AHaFu?cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3",
       playtime: "1,550 hrs",
       ign: "Ren",
       achievements: [

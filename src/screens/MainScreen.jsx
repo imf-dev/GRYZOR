@@ -18,14 +18,14 @@ const games = [
     description:
       "Fast-paced MOBA where heroes clash in 5v5 battles for victory.",
     imageUrl:
-      "https://wallpapers.com/images/featured/mobile-legends-v0u46grjbqc6h9ga.jpg",
+      "https://cdn.wallpapersafari.com/59/8/MjlBeW.png",
   },
   {
     title: "Genshin Impact",
     description:
       "Open-world action RPG with elemental combat, exploration, and epic storylines.",
     imageUrl:
-      "https://fastcdn.hoyoverse.com/content-v2/plat/124031/5d2ba4371115d26de4c574b28311aed8_576844151847376526.jpeg",
+      "https://cdn.mos.cms.futurecdn.net/7Cbpe8JbsPYc3ZfhzrP5ae.jpg",
   },
   {
     title: "Growtopia",
@@ -39,7 +39,7 @@ const games = [
     description:
       "Fast-paced multiplayer MOBA where heroes battle in strategic 5v5 matches for dominance.",
     imageUrl:
-      "https://revolutionarena.com/pt-br/wp-content/uploads/sites/2/2024/03/Honor-of-Kings.jpg",
+      "https://images.wallpapersden.com/image/download/honor-of-kings-hd_bWhoZWmUmZqaraWkpJRmbmdlrWZlbWU.jpg",
   },
   {
     title: "Grow a Garden",
@@ -66,7 +66,7 @@ const games = [
     description:
       "Action-packed Roblox game where players collect characters, level up, and battle in anime-inspired arenas.",
     imageUrl:
-      "https://tr.rbxcdn.com/180DAY-f4f1b6547583ffeb85cd659de39482c4/768/432/Image/Webp/noFilter",
+      "https://tse3.mm.bing.net/th/id/OIP.fLvOqD9oZ_cNCwpXi61w5QHaEK?cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     title: "osu!",
@@ -93,7 +93,7 @@ const games = [
     description:
       "A fast-paced battling game where players launch customizable spinning tops into arenas and fight to outlast opponents with power, speed, and strategy.",
     imageUrl:
-      "https://www.video-games-museum.com/en/screenshots/PSP/1/43942-title-Metal-Fight-Beyblade-Portable-Chouzetsu-Tensei-Vulcan-Horses.jpg",
+      "https://tse2.mm.bing.net/th/id/OIP.T-SMC9UJqakJzolFfX529AHaFu?cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3",
   },
 ];
 

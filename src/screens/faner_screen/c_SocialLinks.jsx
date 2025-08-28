@@ -17,7 +17,7 @@ const SocialLinks = ({ socialAccounts }) => {
       Twitch:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Twitch_Glitch_Logo_Purple.svg/1756px-Twitch_Glitch_Logo_Purple.svg.png",
       Roblox:
-        "https://wallpapers.com/images/featured/roblox-free-svg-wbd6x70qwb4ipcff.jpg",
+        "https://logos-world.net/wp-content/uploads/2020/11/Roblox-Icon-Logo-2019.png",
     };
 
     return (
