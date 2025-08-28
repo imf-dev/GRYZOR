@@ -58,12 +58,14 @@ const OurProfile = () => {
   const handleCardClick = (index) => {
     setCurrentIndex(index);
 
-    if (profiles[index].id === 1) {
+    if (profiles[index].realName.includes("Jennifer")) {
       navigate("/GRYZOR/profile/chio");
-    } else if (profiles[index].id === 2) {
+    } else if (profiles[index].realName.includes("Irah")) {
       navigate("/GRYZOR/profile/faner");
-    } else if (profiles[index].id === 4) {
+    } else if (profiles[index].realName.includes("Aveja")) {
       navigate("/GRYZOR/profile/ipong");
+    } else if (profiles[index].realName.includes("Isabelle") || profiles[index].realName.includes("Nicolo")) {
+      navigate("/GRYZOR/profile/demo");
     }
   };
 

@@ -5,13 +5,14 @@ import DemoProfile from "./screens/DemoProfile.jsx";
 import ChioProfile from "./screens/chio_screen/ChioProfile.jsx";
 import IpongProfile from "./screens/ipong_screen/IpongProfile.jsx";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <Header />
       <Routes>
+        <Route path="/" element={<Navigate to="/GRYZOR" replace />} />
         <Route path="/GRYZOR" element={<MainScreen />} />
         <Route path="/GRYZOR/profile/faner" element={<FanerProfile />} />
         <Route path="/GRYZOR/profile/demo" element={<DemoProfile />} />
