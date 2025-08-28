@@ -317,6 +317,7 @@ function ChioProfile() {
       flexDirection: 'column',
       gap: '20px',
       padding: '20px',
+      paddingTop: '100px', // Add top margin for header
       overflowY: 'auto',
       fontFamily: 'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial'
     },
@@ -342,7 +343,7 @@ function ChioProfile() {
     },
     profileContent: {
       position: 'relative',
-      padding: '50px 20px 20px',
+      padding: '20px',
       height: '100%',
       display: 'flex',
       alignItems: 'center',
@@ -383,7 +384,9 @@ function ChioProfile() {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      gap: '12px'
+      gap: '12px',
+      flex: 1,
+      justifyContent: 'center'
     },
     avatarWrapper: {
       position: 'relative',
@@ -441,8 +444,10 @@ function ChioProfile() {
     rightSection: {
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'flex-end',
-      gap: '12px'
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '12px',
+      flex: 1
     },
     location: {
       display: 'flex',
