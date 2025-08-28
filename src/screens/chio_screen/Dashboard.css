@@ -64,7 +64,7 @@
   gap: 16px;
 }
 
-.container-card {
+.chio-profile-container .container-card {
   background: #12151a;
   padding: 16px;
   border-radius: 12px;
@@ -72,14 +72,14 @@
 }
 
 /* Side container for achievements + recent activity */
-.side-container {
+.chio-profile-container .side-container {
   grid-column: 1 / span 2;
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
 }
 
-.achievements-card, .recent-activity-card {
+.chio-profile-container .achievements-card, .chio-profile-container .recent-activity-card {
   flex: 1;
   min-width: 250px;
   background: #12151a;
@@ -89,7 +89,7 @@
 }
 
 /* Chart Card */
-.chart-card {
+.chio-profile-container .chart-card {
   grid-column: 1 / span 2;
   background: #12151a;
   padding: 16px;
@@ -98,8 +98,8 @@
 }
 
 /* Container Titles */
-.container-title,
-.chart-title {
+.chio-profile-container .container-title,
+.chio-profile-container .chart-title {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 12px;
@@ -107,13 +107,13 @@
 }
 
 /* Inner Cards */
-.inner-cards {
+.chio-profile-container .inner-cards {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.inner-card {
+.chio-profile-container .inner-card {
   background: #1c1f2b;
   padding: 12px;
   border-radius: 8px;
@@ -125,21 +125,21 @@
 
 /* Responsive Adjustments */
 @media (max-width: 1200px) {
-  .game-card-container {
+  .chio-profile-container .game-card-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .main-layout {
+  .chio-profile-container .main-layout {
     grid-template-columns: 1fr;
   }
 
-  .game-card-container {
+  .chio-profile-container .game-card-container {
     grid-template-columns: 1fr;
   }
 
-  .side-container {
+  .chio-profile-container .side-container {
     flex-direction: column;
   }
 }
