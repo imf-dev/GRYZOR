@@ -15,13 +15,13 @@ function Milestones() {
   ];
 
   return (
-    <section className="milestones-section">
-      <h2 className="section-title">Milestones</h2>
-      <div className="milestones-scroll">
+    <section className="wenc_milestones-section">
+      <h2 className="wenc_section-title">Milestones</h2>
+      <div className="wenc_milestones-scroll">
         {milestones.map((milestone, idx) => (
-          <div className="milestone-card" key={idx}>
-            <div className="card-name">{milestone.name}</div>
-            <div className="card-stats">
+          <div className="wenc_milestone-card" key={idx}>
+            <div className="wenc_card-name">{milestone.name}</div>
+            <div className="wenc_card-stats">
               {milestone.stats.split("\n").map((line, i) => (
                 <p key={i}>{line}</p>
               ))}

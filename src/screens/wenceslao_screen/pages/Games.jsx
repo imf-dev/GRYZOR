@@ -44,20 +44,20 @@ function Games() {
   ];
 
   return (
-    <section className="games-section">
-      <h2 className="section-title">Other Games</h2>
-      <div className="games-grid">
+    <section className="wenc_games-section">
+      <h2 className="wenc_section-title">Other Games</h2>
+      <div className="wenc_games-grid">
         {games.map((game, index) => (
-          <div key={index} className="game-card milestone-card">
-            <img src={game.image} alt={game.title} className="card-image" />
+          <div key={index} className="wenc_game-card wenc_milestone-card">
+            <img src={game.image} alt={game.title} className="wenc_card-image" />
 
             {/* Bottom overlay */}
-            <div className="card-bottom">
-              <div className="card-name">{game.title}</div>
+            <div className="wenc_card-bottom">
+              <div className="wenc_card-name">{game.title}</div>
             </div>
 
             {/* Hover overlay */}
-            <div className="card-stats">
+            <div className="wenc_card-stats">
               <p>Release: {game.release}</p>
               <p>Progress: {game.progress}</p>
             </div>

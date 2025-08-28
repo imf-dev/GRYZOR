@@ -24,8 +24,8 @@ function GameAnalytics() {
   ];
 
   return (
-    <div className="analytics-section">
-      <h2 className="analytics-title">Game Analytics</h2>
+    <div className="wenc_analytics-section">
+      <h2 className="wenc_analytics-title">Game Analytics</h2>
       <GameAnalyticsCard data={analyticsData} />
     </div>
   );

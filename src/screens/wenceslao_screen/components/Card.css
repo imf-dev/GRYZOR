@@ -48,8 +48,8 @@
 .wenc_profile-pic-wrapper {
   position: relative;
   display: inline-block;
-  padding-left: 50px;
-  padding-top: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
 .wenc_profile-pic {
@@ -83,22 +83,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
+  height: 100%;
 }
 
 /* HEADER CARD */
 .wenc_header-card {
-  width: 80vw;
-  max-width: none;
-  margin-left: 10vw;
-  margin-right: 10vw;
-  height: 200px;
+  width: 100%;
+  max-width: 1200px;
+  height: 220px;
   border: 2px solid var(--wenc-neon-pink);
   box-shadow: 0 0 15px var(--wenc-neon-pink), 0 0 20px var(--wenc-neon-blue);
   border-radius: 20px;
-  padding: 10px;
+  padding: 20px;
   background: rgba(10, 0, 25, 0.85);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto;
 }
 
 .wenc_header-card:hover {
@@ -127,9 +127,10 @@
 .wenc_right-links {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   text-align: right;
-  padding-right: 50px;
+  padding-right: 20px;
+  min-width: 150px;
 }
 
 .wenc_right-links p {
@@ -194,14 +195,58 @@
 .wenc_analytics-section {
   text-align: center;
   margin: 40px auto;
-  max-width: none;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .wenc_analytics-title {
-  font-size: 2rem;
   color: var(--wenc-neon-pink);
-  text-shadow: 0 0 12px var(--wenc-neon-blue);
-  margin-bottom: 20px;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 12px var(--wenc-neon-pink), 0 0 20px var(--wenc-neon-blue);
+}
+
+.wenc_analytics-card {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  background: rgba(10, 0, 25, 0.85);
+  border-radius: 20px;
+  border: 2px solid var(--wenc-neon-pink);
+  box-shadow: 0 0 15px var(--wenc-neon-pink), 0 0 20px var(--wenc-neon-blue);
+}
+
+.wenc_analytics-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  border: 1px solid var(--wenc-neon-blue);
+}
+
+.wenc_analytics-game {
+  color: var(--wenc-neon-blue);
+  font-size: 1.5rem;
+  margin: 0;
+  text-shadow: 0 0 8px var(--wenc-neon-blue);
+}
+
+.wenc_circle-stats {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Games Section */
+.wenc_games-section {
+  margin: 40px auto;
+  max-width: 1200px;
+  width: 100%;
+}
   text-align: left;
 }
 
@@ -454,4 +499,176 @@
   margin: 2px 0;
   font-size: 0.85rem;
   color: var(--wenc-neon-blue);
+}
+
+/* Game Card Styles */
+.wenc_game-card {
+  position: relative;
+  flex: 0 0 280px;
+  height: 220px;
+  scroll-snap-align: start;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid var(--wenc-neon-pink);
+  box-shadow: 0 0 12px var(--wenc-neon-blue);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-right: 20px;
+  box-sizing: border-box;
+}
+
+.wenc_game-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px var(--wenc-neon-pink), 0 0 35px var(--wenc-neon-blue);
+}
+
+.wenc_card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.wenc_card-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 20px 15px 15px;
+  border-radius: 0 0 14px 14px;
+}
+
+.wenc_card-name {
+  color: var(--wenc-neon-pink);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 0 0 8px var(--wenc-neon-pink);
+  margin: 0;
+}
+
+.wenc_card-stats {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 3;
+  border-radius: 14px;
+}
+
+.wenc_game-card:hover .wenc_card-stats {
+  opacity: 1;
+}
+
+.wenc_card-stats p {
+  margin: 5px 0;
+  color: var(--wenc-neon-blue);
+  text-shadow: 0 0 5px var(--wenc-neon-blue);
+}
+
+/* Responsive Design for Cards */
+@media (max-width: 768px) {
+  .wenc_header-card {
+    height: auto;
+    min-height: 180px;
+    padding: 15px;
+  }
+  
+  .wenc_header-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .wenc_profile-pic-wrapper {
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  
+  .wenc_profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .wenc_main-name {
+    font-size: 1.5rem;
+  }
+  
+  .wenc_ign {
+    font-size: 1rem;
+  }
+  
+  .wenc_right-links {
+    padding-right: 0;
+    text-align: center;
+    min-width: auto;
+  }
+  
+  .wenc_right-links p {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+  
+  .wenc_milestone-card {
+    flex: 0 0 250px;
+    height: 180px;
+  }
+  
+  .wenc_milestones-scroll {
+    gap: 20px;
+  }
+  
+  .wenc_cards-container {
+    gap: 15px;
+  }
+  
+  .wenc_profile-card {
+    width: 180px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wenc_header-card {
+    padding: 10px;
+  }
+  
+  .wenc_profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .wenc_main-name {
+    font-size: 1.3rem;
+  }
+  
+  .wenc_ign {
+    font-size: 0.9rem;
+  }
+  
+  .wenc_milestone-card {
+    flex: 0 0 220px;
+    height: 160px;
+  }
+  
+  .wenc_profile-card {
+    width: 160px;
+    height: 220px;
+  }
+  
+  .wenc_profile-title {
+    font-size: 2rem;
+  }
 }

@@ -1,3 +1,4 @@
+/* Wenceslao Profile Specific Styles - Scoped */
 .wenc_stats-root {
   --wenc-neon-pink: #ff3ebf;
   --wenc-neon-blue: #1ecfff;
@@ -8,9 +9,13 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  padding-top: 100px; /* Add space for header */
   font-family: sans-serif;
-  background: linear-gradient(135deg, #ffdde1, #fbc2eb, #fda4ba);
+  background: linear-gradient(135deg, #0a0018, #0a0022, #1a0030);
   color: #fff;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .wenc_section-title {
@@ -26,6 +31,8 @@
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .wenc_games-grid {
@@ -45,4 +52,31 @@
 .wenc_games-grid::-webkit-scrollbar-thumb {
   background: var(--wenc-neon-pink);
   border-radius: 4px;
+}
+
+.wenc_games-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .wenc_app {
+    padding: 10px;
+    padding-top: 80px;
+  }
+  
+  .wenc_section-title {
+    font-size: 1.3rem;
+  }
+  
+  .wenc_stats-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .wenc_games-grid {
+    max-width: 100%;
+    gap: 15px;
+  }
 }
