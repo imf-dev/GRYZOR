@@ -28,7 +28,7 @@ const TeamConnections = ({ teamMembers }) => {
       2: "/GRYZOR/profile/faner",
       3: "/GRYZOR/profile/wenceslao",
       4: "/GRYZOR/profile/ipong",
-      5: "/GRYZOR/profile/demo",
+      5: "/GRYZOR/profile/ariola",
     };
 
     const route = profileRoutes[id];

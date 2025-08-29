@@ -66,6 +66,10 @@ const OurProfile = () => {
       navigate("/GRYZOR/profile/wenceslao");
     } else if (profiles[index].id === 4) {
       navigate("/GRYZOR/profile/ipong");
+    } else if (profiles[index].id === 5) {
+      navigate("/GRYZOR/profile/ariola");
+    } else {
+      navigate("/GRYZOR");
     }
   };
 

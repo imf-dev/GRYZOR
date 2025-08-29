@@ -1,0 +1,91 @@
+/* Container Card */
+.ariola_game-list {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+/* Header with title and arrows */
+.ariola_game-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ariola_game-list-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.ariola_game-list-buttons button,
+.ariola_game-arrow {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 4px;
+  transition: background 0.2s ease;
+}
+
+.ariola_game-list-buttons button:hover,
+.ariola_game-arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Grid for game cards */
+.ariola_game-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  height: 200px;
+  position: relative;
+  perspective: 1000px;
+}
+
+/* Individual Game Card */
+.ariola_game-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Center Card */
+.ariola_game-center {
+  transform: scale(1.1);
+  z-index: 10;
+  opacity: 1;
+}
+
+/* Side Cards */
+.ariola_game-side {
+  transform: scale(0.85);
+  opacity: 0.7;
+}
+
+/* Gradient Overlay */
+.ariola_game-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.7;
+}
+/* Game Title with Background Box */
+.ariola_game-title {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.4); /* semi-transparent black */
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  backdrop-blur: 2px; /* optional for a frosted effect */
+}

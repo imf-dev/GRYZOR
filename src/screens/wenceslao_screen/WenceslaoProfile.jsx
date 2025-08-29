@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import ProfileHeader from "./w_ProfileHeader";
 import MilestonesCards from "./w_MilestonesCards";
@@ -8,6 +8,11 @@ import "./WenceslaoProfile.css";
 import isa from "../../assets/player_pics/isabel.jpeg";
 
 const WenceslaoProfile = () => {
+  // ✅ Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const milestones = [
     {
       name: "Immortal",

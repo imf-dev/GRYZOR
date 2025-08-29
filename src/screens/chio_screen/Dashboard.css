@@ -1,145 +1,225 @@
-/* Dashboard */
-.chio-profile-container .dashboard {
-  width: 100%;
-  min-height: 100vh;
-  background: radial-gradient(circle at top left, rgba(0, 255, 255, 0.15), transparent 40%),
-              radial-gradient(circle at bottom right, rgba(255, 0, 255, 0.15), transparent 40%),
-              linear-gradient(135deg, #00000097, #07034885, #2a1b0f);
-  background-size: 200% 200%;
-  animation: neonShift 12s ease infinite;
-  color: #fff;
-  box-sizing: border-box;
+.game-card {
+  width: 340px;
+  min-height: 520px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-@keyframes neonShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Main Layout */
-.chio-profile-container .main-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  gap: 20px;
-}
-
-/* Top row */
-.chio-profile-container .profile-card {
-  grid-column: 1 / span 2;
- background: linear-gradient(180deg,  #0ac3e3, #7383ef);
+  justify-content: space-between;
+  background: linear-gradient(180deg, #1233ebb8, #8c0ba99f);
+  border-radius: 16px;
   padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(73, 8, 225, 0.443);
+  box-shadow: 0 6px 18px rgba(5, 197, 231, 0.365);
+  color: #ffffff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 0; /* ✅ ensure card is base layer */
 }
 
-/* Second row: Stats + Milestone */
-.chio-profile-container .global-stats {
-  grid-column: 1 / span 1;
-  background: #1c1f2b; /* dark background for visibility */
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(35, 65, 153, 0.443);
+/* Glossy overlay effect */
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0.05) 75%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* ✅ does not block hover */
+  z-index: 1;
 }
 
-.chio-profile-container .milestone-card {
-  grid-column: 2 / span 1;
-  background: #1c1f2b;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(45, 18, 197, 0.443);
+/* Hover effects */
+.game-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 12px 32px rgba(5, 197, 231, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+  background: linear-gradient(180deg, #1340ffb8, #9c0cb99f);
 }
 
-/* Game Cards Grid */
-.chio-profile-container .game-card-container {
-  grid-column: 1 / span 2;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+.game-card:hover::before {
+  opacity: 1;
 }
 
-.chio-profile-container .container-card {
-  background: #12151a;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(48, 15, 167, 0.443);
+/* Glossy shine animation */
+.game-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg) translateX(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none; /* ✅ does not block hover */
+  z-index: 2;
 }
 
-/* Side container for achievements + recent activity */
-.chio-profile-container .side-container {
-  grid-column: 1 / span 2;
+.game-card:hover::after {
+  transform: rotate(45deg) translateX(100%);
+}
+
+/* Ensure content stays above overlays */
+.game-card > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* Thumbnail */
+.game-thumb {
+  width: 100%;
+  height: 200px; 
+  object-fit: cover;
+  border-radius: 50px;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-thumb {
+  transform: scale(1.05);
+}
+
+/* Header */
+.game-header {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-title {
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
+  font-weight: 600;
+  margin: 0;
+}
+
+.ign {
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  opacity: 0.85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Meta tags */
+.meta {
+  margin: 8px 0;
+  display: flex;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
-.chio-profile-container .achievements-card, .chio-profile-container .recent-activity-card {
-  flex: 1;
-  min-width: 250px;
-  background: #12151a;
-  padding: 16px;
+.pill {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(2, 230, 131, 0.443);
+  font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+  font-weight: 500;
+  transition: background 0.3s ease;
 }
 
-/* Chart Card */
-.chio-profile-container .chart-card {
-  grid-column: 1 / span 2;
-  background: #12151a;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(2, 230, 131, 0.443);
+.game-card:hover .pill {
+  background: rgba(255, 255, 255, 0.25);
 }
 
-/* Container Titles */
-.chio-profile-container .container-title,
-.chio-profile-container .chart-title {
-  font-size: 18px;
+/* Stats */
+.stat-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+  margin: 4px 0;
+}
+
+.stat-row .k {
+  opacity: 0.85;
+}
+
+.stat-row .v {
   font-weight: 600;
-  margin-bottom: 12px;
-  color: #fff;
 }
 
-/* Inner Cards */
-.chio-profile-container .inner-cards {
+/* Achievements */
+.achievements-section {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px;
+  border-radius: 12px;
+  margin-top: auto;
+  transition: background 0.3s ease;
+}
+
+.game-card:hover .achievements-section {
+  background: rgba(227, 40, 40, 0.15);
+}
+
+.achievements-section h5 {
+  margin: 0 0 8px;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  font-weight: 600;
+}
+
+.achievements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 }
 
-.chio-profile-container .inner-card {
-  background: #1c1f2b;
-  padding: 12px;
+.ach-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 8px;
   border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  color: #fff;
+  font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+  word-break: break-word;
+  transition: background 0.3s ease;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 1200px) {
-  .chio-profile-container .game-card-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.game-card:hover .ach-item {
+  background: rgba(255, 255, 255, 0.18);
 }
 
-@media (max-width: 768px) {
-  .chio-profile-container .main-layout {
-    grid-template-columns: 1fr;
-  }
+.ach-item .icon {
+  flex-shrink: 0;
+}
 
-  .chio-profile-container .game-card-container {
-    grid-template-columns: 1fr;
-  }
+/* Badge */
+.badge {
+  background: #ff4081;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
 
-  .chio-profile-container .side-container {
-    flex-direction: column;
-  }
+.game-card:hover .badge {
+  background: #ff5722;
+  box-shadow: 0 2px 8px rgba(255, 64, 129, 0.4);
 }
