@@ -22,7 +22,21 @@ const TeamConnections = ({ teamMembers }) => {
   };
 
   const handleSeeProfile = (id) => {
-    navigate(`/profile/${id}`);
+    // Map member IDs to profile routes
+    const profileRoutes = {
+      1: "/GRYZOR/profile/chio",
+      2: "/GRYZOR/profile/faner",
+      3: "/GRYZOR/profile/wenceslao",
+      4: "/GRYZOR/profile/ipong",
+      5: "/GRYZOR/profile/demo",
+    };
+
+    const route = profileRoutes[id];
+    if (route) {
+      navigate(route);
+    } else {
+      console.warn("No profile route found for member id:", id);
+    }
   };
 
   const getGameIcon = (game) => {

@@ -4,7 +4,7 @@ import FanerProfile from "./screens/faner_screen/FanerProfile.jsx";
 import DemoProfile from "./screens/DemoProfile.jsx";
 import ChioProfile from "./screens/chio_screen/ChioProfile.jsx";
 import IpongProfile from "./screens/ipong_screen/IpongProfile.jsx";
-import WenceslaoProfile from "./screens/wenceslao_screen/WenceslaoProfile";
+import WenceslaoProfile from "./screens/wenceslao_screen/WenceslaoProfile.jsx";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 

@@ -233,6 +233,15 @@ const FanerProfile = () => {
 
   return (
     <div className="faner-profile">
+      {/* Twinkling Stars */}
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
       <div className="profile-container">
         <button className="back-button" onClick={handleBackClick}>
           <ArrowLeft size={20} />
