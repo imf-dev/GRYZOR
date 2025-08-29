@@ -58,8 +58,18 @@ const OurProfile = () => {
   const handleCardClick = (index) => {
     setCurrentIndex(index);
 
-    if (profiles[index].id === 2) {
+    if (profiles[index].id === 1) {
+      navigate("/GRYZOR/profile/chio");
+    } else if (profiles[index].id === 2) {
       navigate("/GRYZOR/profile/faner");
+    } else if (profiles[index].id === 3) {
+      navigate("/GRYZOR/profile/wenceslao");
+    } else if (profiles[index].id === 4) {
+      navigate("/GRYZOR/profile/ipong");
+    } else if (profiles[index].id === 5) {
+      navigate("/GRYZOR/profile/ariola");
+    } else {
+      navigate("/GRYZOR");
     }
   };
 

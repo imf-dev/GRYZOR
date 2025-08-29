@@ -1,0 +1,13 @@
+.chart-card {
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  border-radius: 16px;
+  padding: 16px;
+  flex: 1 1 300px;
+  min-width: 250px;
+  max-width: 350px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+}

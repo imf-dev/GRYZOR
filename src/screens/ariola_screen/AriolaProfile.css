@@ -1,0 +1,209 @@
+/* ===== Profile Screen ===== */
+.ariola_profile-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  background: #12002f; /* deep purple background */
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* ===== Profile Card Row ===== */
+.ariola_profile-container {
+  display: flex;
+  margin-top: 90px;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 30px;
+  background: linear-gradient(135deg, #5a189a, #7b2cbf, #9d4edd);
+  border-radius: 20px;
+  gap: 20px;
+  box-shadow: 0 10px 25px rgba(157, 78, 221, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glossy overlay (shine) */
+.ariola_profile-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.15),
+    transparent 70%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+}
+
+/* ===== Cards (Glassmorphism) ===== */
+.ariola_left-card, .ariola_middle-card, .ariola_right-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Left Card - Added text-align center */
+.ariola_left-card {
+  text-align: center;
+}
+
+.ariola_avatar {
+  margin-top: 50px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 3px solid #fff;
+}
+
+.ariola_gamername {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 8px 0 4px;
+}
+
+.ariola_gamer-rank {
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+/* Middle Card */
+.ariola_fullname {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.ariola_socials {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.ariola_link {
+  color: #ffb3ff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Right Card */
+.ariola_stats-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.ariola_stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  text-align: center;
+}
+
+.ariola_stat-value {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.ariola_stat-label {
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+.ariola_stat-value.blue {
+  color: #4dabf7;
+}
+.ariola_stat-value.green {
+  color: #51cf66;
+}
+.ariola_stat-value.yellow {
+  color: #fcc419;
+}
+.ariola_stat-value.pink {
+  color: #f783ac;
+}
+
+/* ===== Stats Row ===== */
+.ariola_profile-stats-row {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+}
+
+/* ===== Section Titles ===== */
+.ariola_section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 10px 0;
+  text-align: left;
+  color: #ffb3ff;
+}
+
+/* ===== Achievements ===== */
+.ariola_profile-achievements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ariola_achievement-card {
+  flex: 1;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+}
+
+.ariola_achievement-card h4 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #ffdaff;
+}
+
+.ariola_achievement-progress {
+  font-size: 0.9rem;
+  color: #eee;
+}
+
+/* ===== Milestones ===== */
+.ariola_profile-milestones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ariola_milestone-card {
+  margin-bottom: 50px;
+  flex: 1;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+}
+
+.ariola_milestone-card h4 {
+  margin-bottom: 4px;
+  color: #ffdaff;
+}
+
+.ariola_icon {
+  font-size: 18px;
+  margin-right: 6px;
+  vertical-align: middle;
+  color: #5865f2; /* Discord brand color */
+}

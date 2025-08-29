@@ -48,8 +48,7 @@ const FanerProfile = () => {
     },
     {
       name: "Mobile Legends: Bang Bang",
-      imageUrl:
-        "https://cdn.wallpapersafari.com/59/8/MjlBeW.png",
+      imageUrl: "https://cdn.wallpapersafari.com/59/8/MjlBeW.png",
       playtime: "1,820 hrs",
       ign: "rahwr",
       achievements: [
@@ -234,6 +233,15 @@ const FanerProfile = () => {
 
   return (
     <div className="faner-profile">
+      {/* Twinkling Stars */}
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
+      <div className="floating-particle"></div>
       <div className="profile-container">
         <button className="back-button" onClick={handleBackClick}>
           <ArrowLeft size={20} />

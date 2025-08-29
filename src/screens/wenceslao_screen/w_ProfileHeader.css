@@ -1,0 +1,673 @@
+/* Profile Header Styles */
+.wenc_profile-header {
+  background: rgba(63, 17, 53, 0.8);
+  border: 2px solid #ff1493;
+  border-radius: 25px;
+  padding: 40px;
+  backdrop-filter: blur(15px);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 0 30px rgba(255, 20, 147, 0.4),
+    inset 0 0 30px rgba(255, 20, 147, 0.1);
+  animation: wenc_slideInUp 0.8s ease-out;
+
+  margin-top: 20px;
+}
+
+.wenc_profile-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    transparent,
+    rgba(255, 20, 147, 0.1),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.8s;
+}
+
+.wenc_profile-header:hover::before {
+  transform: translateX(100%);
+}
+
+.wenc_profile-main-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.wenc_profile-avatar-section {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.wenc_avatar-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wenc_profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #ff1493;
+  box-shadow: 0 0 25px rgba(255, 20, 147, 0.6);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  animation: wenc_avatarFloat 3s ease-in-out infinite;
+}
+
+.wenc_avatar-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff1493, #8a2be2);
+  opacity: 0.4;
+  filter: blur(15px);
+  z-index: 1;
+  animation: wenc_avatarGlow 2s ease-in-out infinite alternate;
+}
+
+.wenc_profile-names {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wenc_real-name {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 0;
+  background: linear-gradient(135deg, #ff1493, #8a2be2, #ff1493);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+  animation: wenc_textGlow 3s ease-in-out infinite alternate;
+}
+
+.wenc_ign {
+  font-size: 1.4em;
+  color: #da70d6;
+  margin: 0;
+  font-weight: 500;
+  text-shadow: 0 0 10px rgba(218, 112, 214, 0.6);
+}
+
+.wenc_profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.wenc_link-item {
+  background: rgba(255, 20, 147, 0.2);
+  border: 1px solid #ff1493;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.9em;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.wenc_link-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 20, 147, 0.4),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.wenc_link-item:hover::before {
+  left: 100%;
+}
+
+.wenc_link-item:hover {
+  background: rgba(255, 20, 147, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+}
+
+.wenc_level-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff1493, #8a2be2);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  animation: wenc_levelPulse 3s ease-in-out infinite;
+  box-shadow: 0 0 25px rgba(255, 20, 147, 0.6);
+}
+
+.wenc_level-number {
+  font-size: 2em;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.wenc_level-text {
+  font-size: 0.8em;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: -5px;
+}
+
+.wenc_profile-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.wenc_stat-item {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #ff1493;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 20, 147, 0.2);
+  animation: wenc_fadeInUp 0.6s ease-out both;
+}
+
+.wenc_stat-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 20, 147, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.wenc_stat-item:hover::before {
+  left: 100%;
+}
+
+.wenc_stat-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 20, 147, 0.8);
+  background: rgba(255, 20, 147, 0.1);
+  box-shadow: 0 10px 25px rgba(255, 20, 147, 0.4);
+}
+
+.wenc_stat-number {
+  font-size: 2em;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 5px;
+  background: linear-gradient(135deg, #ff1493, #8a2be2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
+}
+
+.wenc_stat-label {
+  font-size: 0.9em;
+  color: #da70d6;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+}
+
+/* Keyframes */
+@keyframes wenc_slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wenc_fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wenc_avatarFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes wenc_avatarGlow {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes wenc_textGlow {
+  0% {
+    text-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 30px rgba(255, 20, 147, 1),
+      0 0 40px rgba(138, 43, 226, 0.8);
+  }
+}
+
+@keyframes wenc_levelPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 25px rgba(255, 20, 147, 0.6);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(255, 20, 147, 0.8);
+  }
+}
+
+/* Existing milestones styles */
+.wenc_milestones-card {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #ff1493;
+  border-radius: 20px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  animation: wenc_slideInRight 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.4),
+    inset 0 0 20px rgba(255, 20, 147, 0.1);
+}
+
+.wenc_milestones-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 20, 147, 0.1),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.wenc_milestones-card:hover::before {
+  transform: translateX(100%);
+}
+
+.wenc_milestones-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 20, 147, 0.5);
+  border-color: rgba(255, 20, 147, 0.8);
+}
+
+.wenc_card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 20, 147, 0.3);
+}
+
+.wenc_card-title {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+  background: linear-gradient(135deg, #ff1493, #8a2be2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
+}
+
+.wenc_milestone-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff1493, #8a2be2);
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.9em;
+  animation: wenc_pulse 2s infinite;
+  box-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
+}
+
+.wenc_milestones-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.wenc_milestone-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #ff1493;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  animation: wenc_fadeInLeft 0.6s ease-out both;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(255, 20, 147, 0.2);
+}
+
+.wenc_milestone-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 20, 147, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.wenc_milestone-item:hover::before {
+  left: 100%;
+}
+
+.wenc_milestone-item:hover {
+  transform: translateX(5px);
+  border-color: rgba(255, 20, 147, 0.6);
+  background: rgba(255, 20, 147, 0.1);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
+}
+
+.wenc_milestone-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff1493, #8a2be2);
+  border: 2px solid rgba(255, 20, 147, 0.5);
+  font-size: 1.5em;
+  animation: wenc_iconFloat 3s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(255, 20, 147, 0.5);
+}
+
+.wenc_icon-glow {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff1493, #8a2be2);
+  opacity: 0.4;
+  filter: blur(10px);
+  z-index: -1;
+  animation: wenc_glowPulse 2s ease-in-out infinite alternate;
+}
+
+.wenc_milestone-content {
+  flex: 1;
+}
+
+.wenc_milestone-name {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 0 5px 0;
+  text-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
+}
+
+.wenc_milestone-stats {
+  font-size: 0.9em;
+  color: #da70d6;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.wenc_milestone-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00ff41, #00cc33);
+  animation: wenc_badgeBounce 2s infinite;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+}
+
+.wenc_badge-text {
+  color: #000000;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+/* Additional keyframes */
+@keyframes wenc_slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes wenc_fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes wenc_pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes wenc_iconFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes wenc_glowPulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes wenc_badgeBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-3px);
+  }
+  60% {
+    transform: translateY(-1px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .wenc_profile-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wenc_profile-main-info {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .wenc_profile-header {
+    padding: 25px;
+  }
+
+  .wenc_profile-avatar-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .wenc_profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .wenc_real-name {
+    font-size: 2em;
+  }
+
+  .wenc_ign {
+    font-size: 1.2em;
+  }
+
+  .wenc_profile-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .wenc_stat-item {
+    padding: 15px;
+  }
+
+  .wenc_stat-number {
+    font-size: 1.5em;
+  }
+
+  .wenc_level-badge {
+    width: 80px;
+    height: 80px;
+  }
+
+  .wenc_level-number {
+    font-size: 1.5em;
+  }
+
+  .wenc_milestones-card {
+    padding: 20px;
+  }
+  .wenc_milestone-item {
+    padding: 15px;
+    gap: 12px;
+  }
+  .wenc_milestone-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+  }
+  .wenc_milestone-name {
+    font-size: 1em;
+  }
+  .wenc_milestone-stats {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .wenc_profile-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .wenc_profile-stats {
+    grid-template-columns: 1fr;
+  }
+}

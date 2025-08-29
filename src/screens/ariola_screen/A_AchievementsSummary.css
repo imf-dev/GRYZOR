@@ -1,0 +1,83 @@
+.ariola_achievement-card {
+  position: relative; /* so tooltip can position itself */
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 16px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(152, 84, 12, 0.685);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.ariola_achievement-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6),
+              0 0 15px rgba(138, 43, 226, 0.6); /* purple glow */
+}
+
+.ariola_achievement-game {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ffcc29; /* gold highlight */
+}
+
+.ariola_achievement-progress {
+  width: 100%;
+  height: 10px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.ariola_achievement-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4eaaff, #4cff77);
+  border-radius: 6px;
+  transition: width 0.3s ease-in-out;
+}
+
+.ariola_achievement-text {
+  font-size: 13px;
+  color: #ddd;
+}
+
+/* Tooltip Box */
+.ariola_achievement-tooltip {
+  position: absolute;
+  bottom: 110%; /* show above card */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20, 20, 30, 0.95); /* glossy dark bg */
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+
+  /* ✅ Stronger Shadow Glow */
+  box-shadow: 0 6px 16px rgba(213, 16, 154, 0.7),
+              0 0 12px rgba(219, 34, 185, 0.6);
+}
+
+/* Tooltip Arrow */
+.ariola_achievement-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(20,20,30,0.95) transparent transparent transparent;
+}
+
+/* Show tooltip on hover */
+.ariola_achievement-card:hover .ariola_achievement-tooltip {
+  opacity: 1;
+  transform: translate(-50%, -6px);
+}

@@ -1,0 +1,49 @@
+.ariola_friends-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 16px;
+  color: #fff;
+}
+
+.ariola_friends-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ariola_friend {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ariola_friend-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.ariola_friend-name {
+  flex: 1;
+  font-size: 14px;
+}
+
+.ariola_status {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.online {
+  color: #4ade80; /* green */
+}
+
+.ingame {
+  color: #a78bfa; /* purple */
+}

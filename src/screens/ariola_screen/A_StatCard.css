@@ -1,0 +1,38 @@
+.ariola_profile-stats-row {
+  display: flex;
+  justify-content: space-between; /* space between cards */
+  align-items: center;
+  gap: 20px; /* spacing between each card */
+  margin-bottom: 40px;
+}
+
+.ariola_stat-card {
+  flex: 1; /* all cards equal width */
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  text-align: center;
+  backdrop-filter: blur(6px); /* ✅ keep the glassy effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ariola_stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.ariola_stat-title {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #aaa;
+  text-transform: uppercase; /* ✅ consistent sleek style */
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.ariola_stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}

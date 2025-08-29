@@ -1,0 +1,113 @@
+.ipong-profile {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #0f0f23 0%,
+    #1a492a 25%,
+    #196619 50%,
+    #031f05 100%
+  );
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated background particles */
+.ipong-profile::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      circle at 20% 50%,
+      rgba(120, 119, 198, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 215, 0, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(255, 107, 107, 0.1) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.profile-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  animation: slideInUp 0.8s ease-out 0.2s both;
+  align-items: start;
+}
+
+.grid-item {
+  animation: fadeInScale 0.6s ease-out;
+  width: 100%;
+  min-height: fit-content;
+}
+
+.grid-item.full-width {
+  grid-column: 1 / -1;
+  margin-top: 5px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ffed4e, #ffd700);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ffd700 rgba(255, 255, 255, 0.1);
+}
+
+/* Loading animation for delayed items */
+.grid-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.grid-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.grid-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.grid-item:nth-child(4) {
+  animation-delay: 0.4s;
+}

@@ -1,0 +1,22 @@
+.ariola_profile-header {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ariola_profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #533483;
+}
+
+.ariola_profile-username {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.ariola_profile-tag {
+  color: #aaa;
+}
