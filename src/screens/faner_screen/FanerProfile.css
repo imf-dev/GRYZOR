@@ -1,19 +1,23 @@
 .faner-profile {
   min-height: 100vh;
-  background: linear-gradient(
-    135deg,
-    #1f1f3b 0%,
-    #1d2d57 25%,
-    #0b3c79 50%,
-    #533483 75%,
-    #7209b7 100%
-  );
+  background: 
+    linear-gradient(
+      135deg,
+      rgba(31, 31, 59, 0.85) 0%,
+      rgba(29, 45, 87, 0.85) 25%,
+      rgba(11, 60, 121, 0.85) 50%,
+      rgba(83, 52, 131, 0.85) 75%,
+      rgba(114, 9, 183, 0.85) 100%
+    ),
+    url('https://www.hdwallpapers.org/uploads/converted/24/06/09/2965479926-Colorful_Mountain_View_Digital_Art-pKQ-750x1334-MM-90.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: white;
   padding-bottom: 50px;
   position: relative;
   overflow-x: hidden;
 }
-
 /* Animated Background Elements */
 .faner-profile::before {
   content: "";
